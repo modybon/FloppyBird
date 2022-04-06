@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "204768589040",
+    "project_id": "floppybird-7efe3",
+    "storage_bucket": "floppybird-7efe3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:204768589040:android:33b29fccc4fe824436fe35",
+        "android_client_info": {
+          "package_name": "com.companyname.floppy_bird"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "204768589040-d8a79no191c1sagvq5pr6s73g0u8b6fn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApANh_ltp5Xpqhx-QCJDH06btB3R2QoXg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "204768589040-d8a79no191c1sagvq5pr6s73g0u8b6fn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

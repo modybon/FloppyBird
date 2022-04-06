@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FloppyBird.LogInPage"
+    NavigationPage.HasNavigationBar="False"
+    >
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Fill" BackgroundColor="#8FE388">
+
+        <Button Text="Need to Register  ➜" BackgroundColor="Yellow" Clicked="RegisterClicked" FontFamily="TitleFont" FontSize="40" Margin="0,25,0,0"/>
+
+    <StackLayout>
+
+        <Label Text="Log In" HorizontalOptions="Center" Margin="0,0,0,10" TextColor="#292F36" FontFamily="TitleFont" FontSize="100"/>
+
+        <StackLayout VerticalOptions="Center" >
+
+            <Entry x:Name="emailEntry"  Placeholder="Email" FontFamily="TitleFont"/>
+
+            <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" FontFamily="TitleFont"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" Margin="10">
+            <Label Text="forgot your password? " TextColor="Blue" TextDecorations="Underline" FontFamily="TitleFont" FontSize="10">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+
+            </Label>
+        </StackLayout>
+
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                <Button Text="Log In" Clicked="LogInButton" BackgroundColor="Teal" Margin="0,30,0,0" FontFamily="ButtonFont" FontSize="20" TextColor="White"/>
+            </StackLayout>
+
+        </StackLayout>
+    </StackLayout>
+
+        </StackLayout>
+</ContentPage>

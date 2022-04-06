@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Plugin.CloudFirestore" Version="4.1.0" />
+    <PackageReference Include="FirebaseAuthentication.net" Version="3.7.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\" />
+    <None Remove="Models\" />
+    <None Remove="Plugin.CloudFirestore" />
+    <None Remove="FirebaseAuthentication.net" />
+    <None Remove="Assets\Fonts\" />
+    <None Remove="Assets\Fonts\CartoonFun-rg0zO.ttf" />
+    <None Remove="Assets\Fonts\Thickdeco-V8Gz.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Models\" />
+    <Folder Include="Assets\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Fonts\CartoonFun-rg0zO.ttf" />
+    <EmbeddedResource Include="Assets\Fonts\Thickdeco-V8Gz.ttf" />
+  </ItemGroup>
+</Project>

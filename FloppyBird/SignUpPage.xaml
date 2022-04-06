@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FloppyBird.SignUpPage"
+    NavigationPage.HasNavigationBar="False"
+    >
+
+    <StackLayout BackgroundColor="#8FE388">
+
+    <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand" HorizontalOptions="Center" >
+
+        <Label x:Name="titleLabel" Text="Sign Up" TextColor="#292F36" FontSize="85" HorizontalOptions="Center" FontFamily="TitleFont" VerticalOptions="StartAndExpand" Margin="0,40,0,0" />
+
+        <Entry x:Name="userNameEntry" Placeholder="User Name" FontFamily="TitleFont" Margin="0,0,0,10" />
+
+            <Label x:Name="invalidUserNameMessage" Text="* Inavlid User Name" Margin="5,0,0,10" TextColor="Red" FontAttributes="Bold" IsVisible="false"/>
+
+        <Entry x:Name="emailEntry" Placeholder="Email" FontFamily="TitleFont" Margin="0,0,0,10"/>
+
+            <Label x:Name="invalidEmailMessage" Text="* Inavlid Email" Margin="5,0,0,0" TextColor="Red" FontAttributes="Bold" IsVisible="false"/>
+
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" FontFamily="TitleFont" Margin="0,0,0,5" />
+
+            <Label x:Name="invalidPasswordMessage"  Text=" * Has to be at least 8 Characters" Margin="5,0,0,10" TextColor="Red" FontAttributes="Bold" IsVisible="false"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+            <Label Text="Already have an account?"  FontAttributes="Bold" FontFamily="TitleFont" FontSize="12" TextColor="Black"/>
+
+            <Label Text="Log In" TextColor="Blue" TextDecorations="Underline" FontFamily="ButtonFont" FontSize="13">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Label.GestureRecognizers>
+
+            </Label>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,45,0,0">
+
+        <Button Text="Sign Up" Clicked="SignUpButton" FontFamily="ButtonFont" FontSize="20" BackgroundColor="Teal" TextColor="White"/>
+
+        </StackLayout>
+        
+    </StackLayout>
+    </StackLayout>
+</ContentPage>
