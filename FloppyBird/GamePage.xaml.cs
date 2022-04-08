@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace FloppyBird
 {
-    public partial class GamePage : ContentPage, INotifyPropertyChanged
+    public partial class GamePage : ContentPage
     {
         private bool _isJumping;
         private Player _player;
@@ -22,37 +22,28 @@ namespace FloppyBird
             objectImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
             _screenHeight = layout.Height;
             _screenWidth = layout.Width;
-            Fall();
+            Start();
         }
 
-        private async void Start()
+        private void Start()
         {
-            while(_isJumping == false)
-            {
-                await objectImage.TranslateTo(0, objectImage.TranslationY + 60);
-            }
+            Gravity();
         }
 
-        async void jumpButton_Clicked(System.Object sender, System.EventArgs e)
+        void jumpButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            _isJumping = true;
-            x = objectImage.X;
-            y = objectImage.Y;
-            // _player.Jump(objectImage, x, y).Commit(this, "player", length: 1000, repeat: () => false);
-            await objectImage.TranslateTo(0, objectImage.TranslationY - 60);
-            _isJumping = false;
-            Fall();
+            _player.JumpAsync(objectImage);
         }
 
-        private async void Fall()
+        private void Gravity()
         {
-            while(!_isJumping)
-            {
-                await objectImage.TranslateTo(0, objectImage.TranslationY + 60);
-            }
-            
+            _player.FallAsync(objectImage);
         }
-        
+
+        void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+        {
+            _player.JumpAsync(objectImage);
+        }
     }
 }
 

@@ -7,10 +7,14 @@
     
 
     >
+    <StackLayout>
+        <StackLayout.GestureRecognizers >
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+        </StackLayout.GestureRecognizers>
     <StackLayout x:Name="layout">
-        
         <Image x:Name="objectImage" WidthRequest="50" HeightRequest="50" VerticalOptions="EndAndExpand" HorizontalOptions="Start" />
-        <Button x:Name="jumpButton" Text="Jump" Clicked="jumpButton_Clicked" VerticalOptions="CenterAndExpand"/>
+        <!--<Button x:Name="jumpButton" Text="Jump" Clicked="jumpButton_Clicked" VerticalOptions="CenterAndExpand"/>-->
     </StackLayout>
+</StackLayout>
 </ContentPage>
 
