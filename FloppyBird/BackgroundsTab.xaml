@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FloppyBird.BackgroundsTab">
+
+     <StackLayout>
+        <ListView x:Name="BackgroundsList" RowHeight="100" ItemTapped="BackgroundsList_ItemTapped">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="20">
+                        <Image
+                            Source="{Binding Image}"
+                            Aspect="AspectFill"
+                          
+                            />
+                            <StackLayout Orientation="Vertical">
+                                <Label
+                                    Text="{Binding Title}"
+                                    FontSize="20"
+                                    FontFamily="TitleFont"
+                                    VerticalTextAlignment="Center"
+                                    />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding Cost}"
+                                        FontFamily="TitleFont"
+                                        VerticalTextAlignment="Center"
+                                        />
+                                    <Image Source="https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png"
+                                           HeightRequest="30"
+                                           />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    <!--<ImageCell
+                        Text="{Binding Title}"
+                        Detail="{Binding Cost}"
+                        ImageSource="{Binding Image}"
+                        Height="30"
+                     >
+                    </ImageCell>-->
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+
+        </ListView>
+    </StackLayout>
+ 
+</ContentPage>
