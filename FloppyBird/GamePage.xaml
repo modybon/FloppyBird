@@ -11,10 +11,18 @@
         <StackLayout.GestureRecognizers >
             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
         </StackLayout.GestureRecognizers>
-    <StackLayout x:Name="layout">
-        <Image x:Name="objectImage" WidthRequest="50" HeightRequest="50" VerticalOptions="EndAndExpand" HorizontalOptions="Start" />
-        <!--<Button x:Name="jumpButton" Text="Jump" Clicked="jumpButton_Clicked" VerticalOptions="CenterAndExpand"/>-->
+    <StackLayout x:Name="layout"  VerticalOptions="Center">
+        <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start"/>
+        <Label x:Name="scoreLabel" Text="0"/>
     </StackLayout>
+    <StackLayout HorizontalOptions="End" VerticalOptions="StartAndExpand">
+        <Image x:Name="obstacleImage"  WidthRequest="100" HeightRequest="100" />
+    </StackLayout>
+        <Button x:Name="playButton" Text="Play" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
+    <StackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
+        <Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />
+    </StackLayout>
+
 </StackLayout>
 </ContentPage>
 

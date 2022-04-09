@@ -25,7 +25,7 @@ namespace FloppyBird.Models
             Firestore fire = new Firestore();
             // todo: Try to do this with promises or TaskCompletionSource ;
             //TaskCompletionSource<String> tcs = new TaskCompletionSource<String>();
-            User user = new User() { HighScore = 0, UserName = userName, Purchases = new List<string>() };
+            User user = new User() { HighScore = 90, UserName = userName, Purchases = new List<string>() };
             try
             {
                 // Takes User Inputs and Creates a new User With it.

@@ -8,12 +8,49 @@ namespace FloppyBird.Models
     public class Player : INotifyPropertyChanged
     {
         private bool _isJumping;
-        private double _currentX;
-        private double _currentY;
+        private bool _isAlive;
+        private int _coins;
+        public event PropertyChangedEventHandler PropertyChanged;
+        private Image _playerSkin;
+
         public Player()
         {
         }
-        
+
+        public Image PlayerSkin
+        {
+            get
+            {
+                return _playerSkin;
+            }
+            set
+            {
+                _playerSkin = value;
+            }
+        }
+        public int Coins
+        {
+            get
+            {
+                return _coins;
+            }
+            set
+            {
+                _coins = value;
+            }
+        }
+
+        public bool IsAlive
+        {
+            get
+            {
+                return _isAlive;
+            }
+            set
+            {
+                _isAlive = value;
+            }
+        }
 
         public bool IsJumping
         {
@@ -24,11 +61,8 @@ namespace FloppyBird.Models
             set
             {
                 _isJumping = value;
-                OnPropertyChanged("IsJumping");
             }
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string propertyName)
         {
@@ -36,29 +70,42 @@ namespace FloppyBird.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        //public async void JumpAsync(Image player)
+        //{
+        //    var a1 = player.TranslateTo(10, player.TranslationY - 90);
+        //    var a2 = player.RotateTo(-90);
+        //    await Task.WhenAll(a1, a2); 
+        //    //FallAsync(player);
+        //}
 
-
-        public async void JumpAsync(Image player)
-        {
-            _isJumping = true;
-            var a1 = player.TranslateTo(10, player.TranslationY - 90);
-            var a2 = player.RotateTo(-90);
-            await Task.WhenAll(a1, a2);
-            _isJumping = false;
-            FallAsync(player);
-        }
-        public async void FallAsync(Image player)
-        {
-            while (!_isJumping)
-            {
-                var a1 = player.TranslateTo(10, player.TranslationY + 70);
-                var a2 = player.RotateTo(60);
-                await Task.WhenAll(a1, a2);
-            }
-            //await DisplayAlert("Game Over", "You Died", "OK");
-        }
+        //public async void FallAsync(Image player)
+        //{
+        //    while (_isAlive)
+        //    {
+        //        var a1 = player.TranslateTo(10, player.TranslationY + 70);
+        //        var a2 = player.RotateTo(60);
+        //        await Task.WhenAll(a1, a2);
+        //    }
+        //    //await DisplayAlert("Game Over", "You Died", "OK");
+        //}
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

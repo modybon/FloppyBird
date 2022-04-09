@@ -26,6 +26,7 @@
     <None Remove="Assets\Fonts\Thickdeco-V8Gz.ttf" />
     <None Remove="Assets\Images\" />
     <None Remove="Assets\Images\pokeball.png" />
+    <None Remove="Assets\Images\pipe.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
@@ -37,5 +38,6 @@
     <EmbeddedResource Include="Assets\Fonts\CartoonFun-rg0zO.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Thickdeco-V8Gz.ttf" />
     <EmbeddedResource Include="Assets\Images\pokeball.png" />
+    <EmbeddedResource Include="Assets\Images\pipe.png" />
   </ItemGroup>
 </Project>

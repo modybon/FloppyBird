@@ -1,48 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Threading.Tasks;
 using FloppyBird.Models;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace FloppyBird
 {
     public partial class GamePage : ContentPage
     {
-        private bool _isJumping;
-        private Player _player;
-        private double x;
-        private double y;
-        private double _screenHeight;
-        private double _screenWidth;
+        private double _screenHeight = DeviceDisplay.MainDisplayInfo.Height;
+        private double _screenWidth = DeviceDisplay.MainDisplayInfo.Width;
+        private Game game;
         public GamePage()
         {
             InitializeComponent();
-            _player = new Player();
-            objectImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
-            _screenHeight = layout.Height;
-            _screenWidth = layout.Width;
-            Start();
+            
+            playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
+            obstacleImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pipe.png");
+            obstacleImage2.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pipe.png");
+            game = new Game(playerImage, _screenHeight, _screenWidth, obstacleImage, obstacleImage2);
+            Thread t2 = new Thread(() => GameOverMessage());
+            t2.Start();
+            //Dead();
+            //game.StartGame(playerImage,_screenHeight,_screenWidth);
         }
 
-        private void Start()
+        private void GameOverMessage()
         {
-            Gravity();
-        }
+            while (!game.IsDead())
+            {
 
-        void jumpButton_Clicked(System.Object sender, System.EventArgs e)
-        {
-            _player.JumpAsync(objectImage);
-        }
-
-        private void Gravity()
-        {
-            _player.FallAsync(objectImage);
+            }
+            MainThread.BeginInvokeOnMainThread(()=> DisplayAlert("Game Over", "Died", "OK"));
         }
 
         void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
         {
-            _player.JumpAsync(objectImage);
+            double y = playerImage.TranslationY;
+            scoreLabel.Text = $"{y}";
+            game.JumpAsync(playerImage);
+        }
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            playButton.IsVisible = false;
+            game.StartGame();
         }
     }
 }
@@ -102,4 +107,58 @@ namespace FloppyBird
 //    Jump();
 
 //    _isAnimating = false;
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+//private async void Start()
+//{
+//    //obstacleImage.TranslationX != - _screenWidth
+//    //|| playerImage.TranslationY <= - (_screenHeight/2)
+//    // playerImage.TranslationY <= (_screenHeight / 2)
+//    Gravity();
+//    while (_Alive)
+//    {
+//        double y = playerImage.TranslationY;
+//        bool cond1 = playerImage.TranslationY >= 0;
+//        bool cond2 = playerImage.TranslationY <= (_screenHeight / 2);
+//        if (cond1 == true && cond2 == true)
+//        {
+//            double _screenHeight = DeviceDisplay.MainDisplayInfo.Height;
+//            double _screenWidth = DeviceDisplay.MainDisplayInfo.Width ;
+
+//            //double x = obstacleImage.TranslationX;
+//            //double y = playerImage.TranslationY;
+//            var a1 = obstacleImage.TranslateTo(obstacleImage.TranslationX - 40, 0);
+//            var a2 = obstacleImage2.TranslateTo(obstacleImage.TranslationX - 40, 0);
+//            await Task.WhenAll(a1, a2);
+//        }
+//        else
+//        {
+//            //var a1 = obstacleImage.TranslateTo(obstacleImage.TranslationX + 40, 0);
+//            //var a2 = obstacleImage2.TranslateTo(obstacleImage.TranslationX + 40, 0);
+//            //await Task.WhenAll(a1, a2);
+//            //double y = playerImage.TranslationY;
+//            _Alive = false;
+//            playerImage.TranslationY = 0;
+//            await DisplayAlert("GameOver","Died","OK");
+
+//        }
+
+//    }
+
+//}
+
+//private void Gravity()
+//{
+//    _player.FallAsync(playerImage);
 //}
