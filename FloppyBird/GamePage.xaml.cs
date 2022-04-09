@@ -19,9 +19,7 @@ namespace FloppyBird
             InitializeComponent();
             
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
-            obstacleImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pipe.png");
-            obstacleImage2.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pipe.png");
-            game = new Game(playerImage, _screenHeight, _screenWidth, obstacleImage, obstacleImage2);
+            game = new Game(playerImage, _screenHeight, _screenWidth, topObstacle, botObstacle);
             Thread t2 = new Thread(() => GameOverMessage());
             t2.Start();
             //Dead();

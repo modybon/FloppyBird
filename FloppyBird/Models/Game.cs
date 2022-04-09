@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Shapes;
 
 namespace FloppyBird.Models
 {
@@ -11,13 +12,13 @@ namespace FloppyBird.Models
     {
         private Player _player;
         private Image _playerImage;
-        private Image _obst1;
-        private Image _obst2;
+        private Shape _obst1;
+        private Shape _obst2;
         private double _screenHeight;
         private double _screenWidth;
         
 
-        public Game(Image player, double screenHeight, double screenWidth, Image obstacale1, Image obstacale2)
+        public Game(Image player, double screenHeight, double screenWidth, Shape obstacale1, Shape obstacale2)
         {
             _player = new Player();
             _player.IsAlive = true;
@@ -40,11 +41,20 @@ namespace FloppyBird.Models
             {
                 //Gravity(_playerImage);
                 double y = _playerImage.TranslationY;
-                bool didNotHitTopOrBot = _playerImage.TranslationY >= 0 && _playerImage.TranslationY <= (_screenHeight / 2);
-                if (didNotHitTopOrBot)
+                bool playerDidNotHitTopOrBot = _playerImage.TranslationY >= 0 && _playerImage.TranslationY <= (_screenHeight / 2);
+                bool obstacleReachedEnd = _obst1.TranslationX <= -(_screenWidth / 2);
+
+                //CreateNewObstacel();
+                if (obstacleReachedEnd)
                 {
-                    var a1 = _obst1.TranslateTo(_obst1.TranslationX - 5, 0);
-                    var a2 = _obst2.TranslateTo(_obst2.TranslationX - 5, 0);
+                    CreateNewObstacel();
+                }
+
+                if (playerDidNotHitTopOrBot)
+                {
+                    var obsX = _obst1.TranslationX;
+                    var a1 = _obst1.TranslateTo(_obst1.TranslationX - 40, 0);
+                    var a2 = _obst2.TranslateTo(_obst2.TranslationX - 40, 0);
                     await Task.WhenAll(a1, a2);
                 }
                 else
@@ -52,6 +62,19 @@ namespace FloppyBird.Models
                     _player.IsAlive = false;
                 }
             }
+        }
+
+        private void CreateNewObstacel()
+        {
+            Random random = new Random();
+            //await _obst1.ScaleTo(random.Next(2,4));
+            //await _obst2.ScaleTo(random.Next(2,4));
+            int limit = (int)(_screenHeight / 2) / 2;
+            _obst1.HeightRequest = random.Next(100, limit);
+            _obst2.HeightRequest = random.Next(100, limit);
+            //Task.WaitAll(b1);
+            _obst1.TranslationX = 0;
+            _obst2.TranslationX = 0;
         }
 
         public async void JumpAsync(Image player)

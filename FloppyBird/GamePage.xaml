@@ -15,12 +15,16 @@
         <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start"/>
         <Label x:Name="scoreLabel" Text="0"/>
     </StackLayout>
-    <StackLayout HorizontalOptions="End" VerticalOptions="StartAndExpand">
-        <Image x:Name="obstacleImage"  WidthRequest="100" HeightRequest="100" />
+    <StackLayout HorizontalOptions="End" VerticalOptions="Start">
+        <!--<Image x:Name="obstacleImage"  WidthRequest="100" HeightRequest="100" />-->
+        <Rectangle x:Name="topObstacle" WidthRequest="50" HeightRequest="200" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">
+</Rectangle>
     </StackLayout>
         <Button x:Name="playButton" Text="Play" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
     <StackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
-        <Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />
+        <!--<Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />-->
+        <Rectangle x:Name="botObstacle" WidthRequest="50" HeightRequest="100" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">
+</Rectangle>
     </StackLayout>
 
 </StackLayout>
