@@ -15,6 +15,7 @@ namespace FloppyBird.Models
         private Image _obst2;
         private double _screenHeight;
         private double _screenWidth;
+        
 
         public Game(Image player, double screenHeight, double screenWidth, Image obstacale1, Image obstacale2)
         {
@@ -27,20 +28,22 @@ namespace FloppyBird.Models
             _screenWidth = screenWidth;
         }
 
-        public async void StartGame()
+        public void StartGame()
         {
-            //Thread t2 = new Thread(() => Gravity(_playerImage));
-            //t2.Start();
             Gravity(_playerImage);
+            MoveObstacles();
+        }
+
+        private async void MoveObstacles()
+        {
             while (_player.IsAlive)
             {
                 //Gravity(_playerImage);
                 double y = _playerImage.TranslationY;
-                bool cond1 = _playerImage.TranslationY >= 0;
-                bool cond2 = _playerImage.TranslationY <= (_screenHeight / 2);
-                if (cond1 == true && cond2 == true)
+                bool didNotHitTopOrBot = _playerImage.TranslationY >= 0 && _playerImage.TranslationY <= (_screenHeight / 2);
+                if (didNotHitTopOrBot)
                 {
-                    var a1 = _obst1.TranslateTo(_obst1.TranslationX - 5,0);
+                    var a1 = _obst1.TranslateTo(_obst1.TranslationX - 5, 0);
                     var a2 = _obst2.TranslateTo(_obst2.TranslationX - 5, 0);
                     await Task.WhenAll(a1, a2);
                 }
@@ -61,6 +64,7 @@ namespace FloppyBird.Models
                 await Task.WhenAll(a1, a2);
                 _player.IsJumping = false;
                 Gravity(_playerImage);
+                //StartGame();
             }
             
         }

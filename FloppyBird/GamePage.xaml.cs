@@ -27,7 +27,6 @@ namespace FloppyBird
             //Dead();
             //game.StartGame(playerImage,_screenHeight,_screenWidth);
         }
-
         private void GameOverMessage()
         {
             while (!game.IsDead())

@@ -70,24 +70,7 @@ namespace FloppyBird.Models
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        //public async void JumpAsync(Image player)
-        //{
-        //    var a1 = player.TranslateTo(10, player.TranslationY - 90);
-        //    var a2 = player.RotateTo(-90);
-        //    await Task.WhenAll(a1, a2); 
-        //    //FallAsync(player);
-        //}
-
-        //public async void FallAsync(Image player)
-        //{
-        //    while (_isAlive)
-        //    {
-        //        var a1 = player.TranslateTo(10, player.TranslationY + 70);
-        //        var a2 = player.RotateTo(60);
-        //        await Task.WhenAll(a1, a2);
-        //    }
-        //    //await DisplayAlert("Game Over", "You Died", "OK");
-        //}
+        
     }
 }
 
@@ -96,7 +79,24 @@ namespace FloppyBird.Models
 
 
 
+//public async void JumpAsync(Image player)
+//{
+//    var a1 = player.TranslateTo(10, player.TranslationY - 90);
+//    var a2 = player.RotateTo(-90);
+//    await Task.WhenAll(a1, a2); 
+//    //FallAsync(player);
+//}
 
+//public async void FallAsync(Image player)
+//{
+//    while (_isAlive)
+//    {
+//        var a1 = player.TranslateTo(10, player.TranslationY + 70);
+//        var a2 = player.RotateTo(60);
+//        await Task.WhenAll(a1, a2);
+//    }
+//    //await DisplayAlert("Game Over", "You Died", "OK");
+//}
 
 
 
