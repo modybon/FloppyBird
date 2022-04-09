@@ -28,12 +28,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/> 
             </Grid.ColumnDefinitions>
-            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="obstacle" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="10"  StrokeThickness="0" Fill="black">
+            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="obstacle" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="0"  StrokeThickness="0" >
             </Rectangle>
-            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="open" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="10" StrokeThickness="0" Fill="white"> 
+            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="open" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="0" StrokeThickness="0"> 
             </Rectangle>
         </Grid>
-        <Button x:Name="playButton" Text="Play" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
+        <!--<Button x:Name="playButton" Text="Play" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>-->
     <!--<StackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
         <Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />
         <Rectangle x:Name="botObstacle" WidthRequest="50" HeightRequest="100" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">

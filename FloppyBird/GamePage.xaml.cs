@@ -14,6 +14,7 @@ namespace FloppyBird
         private double _screenHeight = DeviceDisplay.MainDisplayInfo.Height;
         private double _screenWidth = DeviceDisplay.MainDisplayInfo.Width;
         private Game game;
+        private bool _started;
         public GamePage()
         {
             InitializeComponent();
@@ -35,16 +36,25 @@ namespace FloppyBird
 
         void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
         {
-            double y = playerImage.TranslationY;
-            scoreLabel.Text = $"{y}";
-            game.JumpAsync(playerImage);
+            if (_started)
+            {
+                double y = playerImage.TranslationY;
+                scoreLabel.Text = $"{y}";
+                game.JumpAsync(playerImage);
+            }
+            else
+            {
+                _started = true;
+                game.StartGame();
+            }
+            
         }
 
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            playButton.IsVisible = false;
-            game.StartGame();
-        }
+        //void Button_Clicked(System.Object sender, System.EventArgs e)
+        //{
+        //    playButton.IsVisible = false;
+        //    game.StartGame();
+        //}
     }
 }
 
