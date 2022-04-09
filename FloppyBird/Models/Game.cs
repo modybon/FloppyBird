@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,24 +14,25 @@ namespace FloppyBird.Models
         private Player _player;
         private Image _playerImage;
         private Shape _obst1;
-        private Shape _obst2;
+        private Shape _openage;
         private double _screenHeight;
         private double _screenWidth;
         
 
-        public Game(Image player, double screenHeight, double screenWidth, Shape obstacale1, Shape obstacale2)
+        public Game(Image player, double screenHeight, double screenWidth, Shape obstacale1, Shape openage)
         {
             _player = new Player();
             _player.IsAlive = true;
             _playerImage = player;
             _obst1 = obstacale1;
-            _obst2 = obstacale2;
+            _openage = openage;
             _screenHeight = screenHeight;
             _screenWidth = screenWidth;
         }
 
         public void StartGame()
         {
+            CreateNewObstacel();
             Gravity(_playerImage);
             MoveObstacles();
         }
@@ -54,7 +56,7 @@ namespace FloppyBird.Models
                 {
                     var obsX = _obst1.TranslationX;
                     var a1 = _obst1.TranslateTo(_obst1.TranslationX - 40, 0);
-                    var a2 = _obst2.TranslateTo(_obst2.TranslationX - 40, 0);
+                    var a2 = _openage.TranslateTo(_openage.TranslationX - 40, 0);
                     await Task.WhenAll(a1, a2);
                 }
                 else
@@ -66,15 +68,15 @@ namespace FloppyBird.Models
 
         private void CreateNewObstacel()
         {
+            List<LayoutOptions> layouts = new List<LayoutOptions>() { LayoutOptions.End, LayoutOptions.Start, LayoutOptions.Center };
             Random random = new Random();
-            //await _obst1.ScaleTo(random.Next(2,4));
-            //await _obst2.ScaleTo(random.Next(2,4));
             int limit = (int)(_screenHeight / 2) / 2;
-            _obst1.HeightRequest = random.Next(100, limit);
-            _obst2.HeightRequest = random.Next(100, limit);
-            //Task.WaitAll(b1);
+            _obst1.HeightRequest = _screenHeight;
+            //(int)(_screenHeight / 6)
+            _openage.HeightRequest = random.Next(80, 200);
+            _openage.VerticalOptions = layouts[random.Next(0,layouts.Count)];
             _obst1.TranslationX = 0;
-            _obst2.TranslationX = 0;
+            _openage.TranslationX = 0;
         }
 
         public async void JumpAsync(Image player)

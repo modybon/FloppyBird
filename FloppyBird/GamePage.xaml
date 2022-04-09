@@ -8,24 +8,37 @@
 
     >
     <StackLayout>
-        <StackLayout.GestureRecognizers >
+        <StackLayout.GestureRecognizers>
             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
         </StackLayout.GestureRecognizers>
     <StackLayout x:Name="layout"  VerticalOptions="Center">
         <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start"/>
         <Label x:Name="scoreLabel" Text="0"/>
     </StackLayout>
-    <StackLayout HorizontalOptions="End" VerticalOptions="Start">
-        <!--<Image x:Name="obstacleImage"  WidthRequest="100" HeightRequest="100" />-->
-        <Rectangle x:Name="topObstacle" WidthRequest="50" HeightRequest="200" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">
+    <!--<StackLayout HorizontalOptions="End" VerticalOptions="Start">
+        <Image x:Name="obstacleImage"  WidthRequest="100" HeightRequest="100" />
+        <Rectangle x:Name="topObstacle" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">
+
 </Rectangle>
-    </StackLayout>
+        <Rectangle x:Name="open" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="white">
+
+</Rectangle>
+    </StackLayout>-->
+        <Grid HorizontalOptions="End">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/> 
+            </Grid.ColumnDefinitions>
+            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="obstacle" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="10"  StrokeThickness="0" Fill="black">
+            </Rectangle>
+            <Rectangle Grid.Column="0" VerticalOptions="Center" x:Name="open" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="10" StrokeThickness="0" Fill="white"> 
+            </Rectangle>
+        </Grid>
         <Button x:Name="playButton" Text="Play" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="Button_Clicked"/>
-    <StackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
-        <!--<Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />-->
+    <!--<StackLayout HorizontalOptions="End" VerticalOptions="EndAndExpand">
+        <Image x:Name="obstacleImage2"  WidthRequest="100" HeightRequest="100" />
         <Rectangle x:Name="botObstacle" WidthRequest="50" HeightRequest="100" RadiusX="10" RadiusY="10" Stroke="Green" StrokeThickness="5" Fill="Black">
 </Rectangle>
-    </StackLayout>
+    </StackLayout>-->
 
 </StackLayout>
 </ContentPage>
