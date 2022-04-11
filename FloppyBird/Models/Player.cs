@@ -10,9 +10,9 @@ namespace FloppyBird.Models
         private bool _isJumping;
         private bool _isAlive;
         private int _coins;
-        public event PropertyChangedEventHandler PropertyChanged;
         private Image _playerSkin;
-
+        public event PropertyChangedEventHandler PropertyChanged;
+        
         public Player()
         {
         }
@@ -28,6 +28,7 @@ namespace FloppyBird.Models
                 _playerSkin = value;
             }
         }
+
         public int Coins
         {
             get

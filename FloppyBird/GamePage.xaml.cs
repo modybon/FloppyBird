@@ -15,11 +15,27 @@ namespace FloppyBird
         private double _screenWidth = DeviceDisplay.MainDisplayInfo.Width;
         private Game game;
         private bool _started;
+        private TapGestureRecognizer gridTap = new TapGestureRecognizer();
         public GamePage()
         {
             InitializeComponent();
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle, open);
+            gridTap.Tapped += (s, e) =>
+            {
+                if (_started)
+                {
+                    double y = playerImage.TranslationY;
+                    scoreLabel.Text = $"{y}";
+                    game.JumpAsync(playerImage);
+                }
+                else
+                {
+                    _started = true;
+                    game.StartGame();
+                }
+            };
+            grid.GestureRecognizers.Add(gridTap);
             Thread t2 = new Thread(() => GameOverMessage());
             t2.Start();
             //Dead();
@@ -31,7 +47,7 @@ namespace FloppyBird
             {
 
             }
-            MainThread.BeginInvokeOnMainThread(()=> DisplayAlert("Game Over", "Died", "OK"));
+            MainThread.BeginInvokeOnMainThread(() => DisplayAlert("Game Over", "Died", "OK"));
         }
 
         void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
@@ -46,10 +62,11 @@ namespace FloppyBird
             {
                 _started = true;
                 game.StartGame();
-            }
-            
+            }    
         }
-
+        
+        
+       
         //void Button_Clicked(System.Object sender, System.EventArgs e)
         //{
         //    playButton.IsVisible = false;
