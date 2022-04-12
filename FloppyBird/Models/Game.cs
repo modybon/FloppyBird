@@ -18,10 +18,10 @@ namespace FloppyBird.Models
         private double _screenWidth;
         
 
-        public Game(Image player, double screenHeight, double screenWidth, Shape obstacale, Shape openage)
+        public Game(Image player, double screenHeight, double screenWidth, Shape obstacle1, Shape obstacle2)
         {
             _player = new Player();
-            _obstacle = new Obstacle(screenHeight,obstacale,openage);
+            _obstacle = new Obstacle(screenHeight,obstacle1,obstacle2);
             _player.IsAlive = true;
             _playerImage = player;
             _screenHeight = screenHeight;
@@ -42,7 +42,7 @@ namespace FloppyBird.Models
                 //Gravity(_playerImage);
                 //double y = _playerImage.TranslationY;
                 bool playerDidNotHitTopOrBot = _playerImage.TranslationY >= 0 && _playerImage.TranslationY <= (_screenHeight / 2);
-                bool obstacleReachedEnd = _obstacle._obstacle.TranslationX <= -(_screenWidth / 2);
+                bool obstacleReachedEnd = _obstacle._obstacle1.TranslationX <= -(_screenWidth / 2);
 
                 if (obstacleReachedEnd)
                 {
@@ -51,8 +51,8 @@ namespace FloppyBird.Models
 
                 if (playerDidNotHitTopOrBot)
                 {
-                    var a1 = _obstacle._obstacle.TranslateTo(_obstacle._obstacle.TranslationX - 40, 0);
-                    var a2 = _obstacle._openage.TranslateTo(_obstacle._openage.TranslationX - 40, 0);
+                    var a1 = _obstacle._obstacle1.TranslateTo(_obstacle._obstacle1.TranslationX - 40, 0);
+                    var a2 = _obstacle._obstacle2.TranslateTo(_obstacle._obstacle2.TranslationX - 40, 0);
                     await Task.WhenAll(a1, a2);
                 }
                 else

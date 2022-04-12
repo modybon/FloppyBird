@@ -8,27 +8,23 @@
     
     <Grid x:Name="grid" BackgroundColor="Green" >
 
-        <Grid.GestureRecognizers>
-            <TapGestureRecognizer Command="{Binding TapGestureRecognizer_Tapped}"/>
-        </Grid.GestureRecognizers>
-
-        <Grid.RowDefinitions>
+       
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         
-        <Label Grid.Row="0" Grid.Column="1" Text="Score: 0" HorizontalOptions="Center" x:Name="scoreLabel" BackgroundColor="Yellow"/>
+        <Label Grid.Row="0" Grid.Column="1" Text="0" FontSize="50" HorizontalOptions="Center" x:Name="scoreLabel" BackgroundColor="Yellow"/>
         <StackLayout BackgroundColor="Yellow">
             <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" BackgroundColor="Yellow"/>
         </StackLayout>
-
-        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="0"  StrokeThickness="0">
+        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle1" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="0"  StrokeThickness="0">
         </Rectangle>
-        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="open" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="0" StrokeThickness="0" > 
+        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle2" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="0" StrokeThickness="0" > 
         </Rectangle>
     </Grid>
 </ContentPage>

@@ -20,7 +20,16 @@ namespace FloppyBird
         {
             InitializeComponent();
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
-            game = new Game(playerImage, _screenHeight, _screenWidth, obstacle, open);
+            game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
+            GridTapped();
+            Thread t2 = new Thread(() => GameOverMessage());
+            t2.Start();
+            //Dead();
+            //game.StartGame(playerImage,_screenHeight,_screenWidth);
+        }
+
+        private void GridTapped()
+        {
             gridTap.Tapped += (s, e) =>
             {
                 if (_started)
@@ -36,11 +45,8 @@ namespace FloppyBird
                 }
             };
             grid.GestureRecognizers.Add(gridTap);
-            Thread t2 = new Thread(() => GameOverMessage());
-            t2.Start();
-            //Dead();
-            //game.StartGame(playerImage,_screenHeight,_screenWidth);
         }
+
         private void GameOverMessage()
         {
             while (!game.IsDead())
@@ -50,20 +56,20 @@ namespace FloppyBird
             MainThread.BeginInvokeOnMainThread(() => DisplayAlert("Game Over", "Died", "OK"));
         }
 
-        void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
-        {
-            if (_started)
-            {
-                double y = playerImage.TranslationY;
-                scoreLabel.Text = $"{y}";
-                game.JumpAsync(playerImage);
-            }
-            else
-            {
-                _started = true;
-                game.StartGame();
-            }    
-        }
+        //void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+        //{
+        //    if (_started)
+        //    {
+        //        double y = playerImage.TranslationY;
+        //        scoreLabel.Text = $"{y}";
+        //        game.JumpAsync(playerImage);
+        //    }
+        //    else
+        //    {
+        //        _started = true;
+        //        game.StartGame();
+        //    }    
+        //}
         
         
        
