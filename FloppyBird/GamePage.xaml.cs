@@ -34,8 +34,13 @@ namespace FloppyBird
             {
                 if (_started)
                 {
-                    double y = playerImage.TranslationY;
-                    scoreLabel.Text = $"{y}";
+                    double px = playerImage.TranslationX;
+                    double py = playerImage.TranslationY;
+                    double ob1x = obstacle1.TranslationX;
+                    double ob1y = obstacle1.TranslationY;
+                    double ob2x = obstacle2.TranslationX;
+                    double ob2y = obstacle2.TranslationY;
+                    scoreLabel.Text = $" Player: X:{px},Y:{py} \n OB1: X:{ob1x},Y:{ob1y} \n OB2: X:{ob2x},Y:{ob2y}";
                     game.JumpAsync(playerImage);
                 }
                 else
