@@ -65,12 +65,12 @@ namespace FloppyBird.Models
                 }
                 
 
-                //bool playerHitObstacle1 = _playerImage.Bounds.IntersectsWith(_obstacle._obstacle1.Bounds) ? true : false;
-                //bool playerHitObstacle2 = _playerImage.Bounds.IntersectsWith(_obstacle._obstacle2.Bounds) ? true : false;
+                
                 // (_playerImage.TranslationX ) <= _obstacle._obstacle1.Height ? true : false;
                 //bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX < 0 ? true : false ;
-                bool playerHitObstacle1 = _playerImage.Bounds.IntersectsWith(_obstacle._obstacle1.Bounds) ;
-                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y ? true : false;
+                bool playerHitObstacle1 =_playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX >= -240;
+                //&& _obstacle._obstacle2.TranslationX == -240
+                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX >= -240 ? true : false;
                 if (playerDidNotHitTopOrBot && !playerHitObstacle2)
                 {
                     var a1 = _obstacle._obstacle1.TranslateTo(_obstacle._obstacle1.TranslationX - 40, 0);
