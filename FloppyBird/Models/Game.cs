@@ -17,7 +17,6 @@ namespace FloppyBird.Models
         private double _screenHeight;
         private double _screenWidth;
         
-
         public Game(Image player, double screenHeight, double screenWidth, Shape obstacle1, Shape obstacle2)
         {
             _player = new Player();
@@ -30,48 +29,24 @@ namespace FloppyBird.Models
 
         public void StartGame()
         {
-            _obstacle.CreateNewObstacel();
+            _obstacle.RespawnObstacle();
             MoveObstacles();
-            Gravity(_playerImage);
-            //_playerImage.TranslateTo(10, _playerImage.TranslationY + 90);
-            
+            Gravity(_playerImage);            
         }
 
         private async void MoveObstacles()
         {
             while (_player.IsAlive)
             {
-                //// PLAYER AXIS TRANSLATION
-                var playerX = _playerImage.TranslationX;
-                var playerY = _playerImage.TranslationY;
-                // OBSTACLE 1 AXIS TRANSLATION
-                var obstacle1X = _obstacle._obstacle1.TranslationX;
-                var obstacle1Y = _obstacle._obstacle1.TranslationY;
-                // OBSTACLE 2 AXIS TRANSLATION
-                var obstacle2X = _obstacle._obstacle2.TranslationX;
-                var obstacle2Y = _obstacle._obstacle2.TranslationY;
-                // BOUNDS
-                var playerBounds = _playerImage.Bounds;
-                var obstacle1Bounds = _obstacle._obstacle1.Bounds;
-                var obstacle2Bounds = _obstacle._obstacle2.Bounds;
-                //bool playerDidNotHitTopOrBot = true;
-                bool cond1 = _playerImage.Bounds.Y <= 0;
-                bool cond2 = _playerImage.Bounds.Y <= (_screenHeight / 2);
-                bool playerDidNotHitTopOrBot = _playerImage.TranslationY >= 0 && _playerImage.TranslationY <= (_screenHeight / 2);
+                bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
+                bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX <= -280 ? true : false;
+                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX <= -280 ? true : false;
                 bool obstacleReachedEnd = _obstacle._obstacle1.TranslationX <= -(_screenWidth / 2);
                 if (obstacleReachedEnd)
                 {
-                    _obstacle.CreateNewObstacel();
-                }
-                
-
-                
-                // (_playerImage.TranslationX ) <= _obstacle._obstacle1.Height ? true : false;
-                //bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX < 0 ? true : false ;
-                bool playerHitObstacle1 =_playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX <= -280 ? true : false;
-                //&& _obstacle._obstacle2.TranslationX == -240
-                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX <= -280 ? true : false;
-                if (playerDidNotHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)
+                    _obstacle.RespawnObstacle();
+                }          
+                if (!playerHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)
                 {
                     var a1 = _obstacle._obstacle1.TranslateTo(_obstacle._obstacle1.TranslationX - 40, 0);
                     var a2 = _obstacle._obstacle2.TranslateTo(_obstacle._obstacle2.TranslationX - 40, 0);
@@ -116,3 +91,14 @@ namespace FloppyBird.Models
         }
     }
 }
+
+//var playerX = _playerImage.TranslationX;
+//var playerY = _playerImage.TranslationY;
+//// OBSTACLE 1 AXIS TRANSLATION
+//var obstacle1X = _obstacle._obstacle1.TranslationX;
+//var obstacle1Y = _obstacle._obstacle1.TranslationY;
+//var obstacle1Height = _obstacle._obstacle1.Height;
+//// OBSTACLE 2 AXIS TRANSLATION
+//var obstacle2X = _obstacle._obstacle2.TranslationX;
+//var obstacle2Y = _obstacle._obstacle2.TranslationY;
+//var obstacle2Height = _obstacle._obstacle1.Height;

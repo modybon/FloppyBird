@@ -11,6 +11,7 @@ namespace FloppyBird
 {
     public partial class GamePage : ContentPage
     {
+        private double _density = DeviceDisplay.MainDisplayInfo.Density;
         private double _screenHeight = DeviceDisplay.MainDisplayInfo.Height;
         private double _screenWidth = DeviceDisplay.MainDisplayInfo.Width;
         private Game game;
@@ -19,6 +20,7 @@ namespace FloppyBird
         public GamePage()
         {
             InitializeComponent();
+            _screenHeight = _screenHeight / _density;
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();
