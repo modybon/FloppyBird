@@ -68,10 +68,10 @@ namespace FloppyBird.Models
                 
                 // (_playerImage.TranslationX ) <= _obstacle._obstacle1.Height ? true : false;
                 //bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX < 0 ? true : false ;
-                bool playerHitObstacle1 =_playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX >= -240;
+                bool playerHitObstacle1 =_playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX <= -280 ? true : false;
                 //&& _obstacle._obstacle2.TranslationX == -240
-                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX >= -240 ? true : false;
-                if (playerDidNotHitTopOrBot && !playerHitObstacle2)
+                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX <= -280 ? true : false;
+                if (playerDidNotHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)
                 {
                     var a1 = _obstacle._obstacle1.TranslateTo(_obstacle._obstacle1.TranslationX - 40, 0);
                     var a2 = _obstacle._obstacle2.TranslateTo(_obstacle._obstacle2.TranslationX - 40, 0);
