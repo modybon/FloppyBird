@@ -16,7 +16,18 @@ namespace FloppyBird.Models
         private Image _playerImage;
         private double _screenHeight;
         private double _screenWidth;
-        
+        private Thread _otherThread;
+        private int _score;
+
+        public int Score
+        {
+            get
+            {
+                return _score;
+            }
+        }
+
+
         public Game(Image player, double screenHeight, double screenWidth, Shape obstacle1, Shape obstacle2)
         {
             _player = new Player();
@@ -25,32 +36,50 @@ namespace FloppyBird.Models
             _playerImage = player;
             _screenHeight = screenHeight;
             _screenWidth = screenWidth;
+            _otherThread = new Thread(()=> Gravity(_playerImage)); 
         }
 
         public void StartGame()
         {
             _obstacle.RespawnObstacle();
-            MoveObstacles();
-            Gravity(_playerImage);            
+            //Gravity(_playerImage);
+            _otherThread.Start();
+            Update();
         }
 
-        private async void MoveObstacles()
+        private async void Update()
         {
             while (_player.IsAlive)
             {
+                var playerX = _playerImage.TranslationX;
+                var playerY = _playerImage.TranslationY;
+                // OBSTACLE 1 AXIS TRANSLATION
+                var obstacle1X = _obstacle._obstacle1.TranslationX;
+                var obstacle1Y = _obstacle._obstacle1.TranslationY;
+                var obstacle1Height = _obstacle._obstacle1.Height;
+                // OBSTACLE 2 AXIS TRANSLATION
+                var obstacle2X = _obstacle._obstacle2.TranslationX;
+                var obstacle2Y = _obstacle._obstacle2.TranslationY;
+                var obstacle2Height = _obstacle._obstacle1.Height;
                 bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
-                bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX <= -280 ? true : false;
-                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX <= -280 ? true : false;
+                bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX == -280 ? true : false;
+                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX == -280 ? true : false;
+
+                bool playerPassed = _playerImage.TranslationY > _obstacle._obstacle1.Height && _playerImage.TranslationY < _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle1.TranslationX == -280 ? true : false;
+
                 bool obstacleReachedEnd = _obstacle._obstacle1.TranslationX <= -(_screenWidth / 2);
                 if (obstacleReachedEnd)
                 {
                     _obstacle.RespawnObstacle();
-                }          
+                }
+                if (playerPassed)
+                {
+                    _score += 1;
+                }
+
                 if (!playerHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)
                 {
-                    var a1 = _obstacle._obstacle1.TranslateTo(_obstacle._obstacle1.TranslationX - 40, 0);
-                    var a2 = _obstacle._obstacle2.TranslateTo(_obstacle._obstacle2.TranslationX - 40, 0);
-                    await Task.WhenAll(a1, a2);
+                    await _obstacle.MoveObstacle();
                 }
                 else
                 {

@@ -24,7 +24,9 @@ namespace FloppyBird
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.pokeball.png");
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();
-            Thread t2 = new Thread(() => GameOverMessage());
+            Thread t1 = new Thread(() => GameOverMessage());
+            Thread t2 = new Thread(() => UpdateScore());
+            t1.Start();
             t2.Start();
             //Dead();
             //game.StartGame(playerImage,_screenHeight,_screenWidth);
@@ -36,13 +38,6 @@ namespace FloppyBird
             {
                 if (_started)
                 {
-                    double px = playerImage.TranslationX;
-                    double py = playerImage.TranslationY;
-                    double ob1x = obstacle1.TranslationX;
-                    double ob1y = obstacle1.TranslationY;
-                    double ob2x = obstacle2.TranslationX;
-                    double ob2y = obstacle2.TranslationY;
-                    scoreLabel.Text = $" Player: X:{px},Y:{py} \n OB1: X:{ob1x},Y:{ob1y} \n OB2: X:{ob2x},Y:{ob2y}";
                     game.JumpAsync(playerImage);
                 }
                 else
@@ -52,6 +47,14 @@ namespace FloppyBird
                 }
             };
             grid.GestureRecognizers.Add(gridTap);
+        }
+
+        private void UpdateScore()
+        {
+            while (!game.IsDead())
+            {
+                MainThread.BeginInvokeOnMainThread(()=> scoreLabel.Text = $"{game.Score}") ;
+            }
         }
 
         private void GameOverMessage()
