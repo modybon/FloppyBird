@@ -54,20 +54,20 @@ namespace FloppyBird.Models
                 var playerX = _playerImage.TranslationX;
                 var playerY = _playerImage.TranslationY;
                 // OBSTACLE 1 AXIS TRANSLATION
-                var obstacle1X = _obstacle._obstacle1.TranslationX;
-                var obstacle1Y = _obstacle._obstacle1.TranslationY;
-                var obstacle1Height = _obstacle._obstacle1.Height;
+                var obstacle1X = _obstacle.TopPart.TranslationX;
+                var obstacle1Y = _obstacle.TopPart.TranslationY;
+                var obstacle1Height = _obstacle.TopPart.Height;
                 // OBSTACLE 2 AXIS TRANSLATION
-                var obstacle2X = _obstacle._obstacle2.TranslationX;
-                var obstacle2Y = _obstacle._obstacle2.TranslationY;
-                var obstacle2Height = _obstacle._obstacle1.Height;
+                var obstacle2X = _obstacle.BottomPart.TranslationX;
+                var obstacle2Y = _obstacle.BottomPart.TranslationY;
+                var obstacle2Height = _obstacle.BottomPart.Height;
                 bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
-                bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle._obstacle1.Height && _obstacle._obstacle1.TranslationX == -280 ? true : false;
-                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle2.TranslationX == -280 ? true : false;
+                bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle.TopPart.Height && _obstacle.TopPart.TranslationX == -280 ? true : false;
+                bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle.BottomPart.Bounds.Y && _obstacle.BottomPart.TranslationX == -280 ? true : false;
 
-                bool playerPassed = _playerImage.TranslationY > _obstacle._obstacle1.Height && _playerImage.TranslationY < _obstacle._obstacle2.Bounds.Y && _obstacle._obstacle1.TranslationX == -280 ? true : false;
+                bool playerPassed = _playerImage.TranslationY > _obstacle.TopPart.Height && _playerImage.TranslationY < _obstacle.BottomPart.Bounds.Y && _obstacle.TopPart.TranslationX == -280 ? true : false;
 
-                bool obstacleReachedEnd = _obstacle._obstacle1.TranslationX <= -(_screenWidth / 2);
+                bool obstacleReachedEnd = _obstacle.TopPart.TranslationX <= -(_screenWidth / 2);
                 if (obstacleReachedEnd)
                 {
                     _obstacle.RespawnObstacle();

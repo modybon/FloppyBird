@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FloppyBird.FirstPage"
+    NavigationPage.HasNavigationBar="False"
+    >
+    <StackLayout  BackgroundColor="#8FE388">
+        <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="100" >
+            <Label Text="Floppy Bird" FontSize="Title" FontFamily="TitleFont"/>
+            <StackLayout Margin="0,70,0,0">
+                <Button Text="Play" VerticalOptions="Center" Clicked="PlayBtnClicked"/>
+                <Button Text="Login" VerticalOptions="Center" Clicked="LogInBtnClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

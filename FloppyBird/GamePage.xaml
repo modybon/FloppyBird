@@ -6,7 +6,7 @@
     NavigationPage.HasNavigationBar="False"
     >
     
-    <Grid x:Name="grid" BackgroundColor="Green" >
+    <Grid x:Name="grid" >
 
        
         <Grid.ColumnDefinitions>
@@ -15,12 +15,12 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         
-        <Label Grid.Row="0" Grid.Column="1" Text="0" FontSize="20" HorizontalOptions="Center" x:Name="scoreLabel" BackgroundColor="Yellow" Margin="30"/>
+        <Label Grid.Row="0" Grid.Column="1" Text="0" FontSize="20" HorizontalOptions="Center" x:Name="scoreLabel"  Margin="30"/>
         
         <StackLayout >
             <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" />
         </StackLayout>
-        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle1" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="0"  StrokeThickness="0">
+        <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle1" WidthRequest="50" HeightRequest="450" RadiusX="10" RadiusY="0"  StrokeThickness="0" >
         </Rectangle>
         <Rectangle Grid.Column="2" VerticalOptions="Center" HorizontalOptions="End" x:Name="obstacle2" WidthRequest="50" HeightRequest="150" RadiusX="10" RadiusY="0" StrokeThickness="0" > 
         </Rectangle>

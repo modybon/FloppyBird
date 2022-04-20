@@ -11,9 +11,24 @@ namespace FloppyBird.Models
         private double _height;
         private int _width;
         private double _screenHeight;
-        public Shape _obstacle1 { get; private set; }
-        public Shape _obstacle2 { get; private set; }
+        private Shape _obstacle1;
+        private Shape _obstacle2;
         Random random;
+
+        public Shape TopPart
+        {
+            get
+            {
+                return _obstacle1;
+            }
+        }
+        public Shape BottomPart
+        {
+            get
+            {
+                return _obstacle2;
+            }
+        }
 
         public Obstacle(double screenHeight,Shape obstacle1,Shape obstacle2)
         {
@@ -30,10 +45,9 @@ namespace FloppyBird.Models
 
         public void RespawnObstacle()
         {
-            // todo: Refactor This Method
             int gap = 200;
 
-            var _obstacle1Height = random.Next(100,(int)_screenHeight - 100);
+            var _obstacle1Height = random.Next(100,(int)_screenHeight - 200);
             var _obstacle2Height = (_screenHeight - _obstacle1Height) - gap;
 
             _obstacle1.HeightRequest = _obstacle1Height;

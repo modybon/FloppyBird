@@ -18,8 +18,7 @@ namespace FloppyBird
 
         private void UserCoinCountStart()
         {
-            UserCoins.Coins = 5000;
-
+            UserCoins.Coins = 0;
         }
 
         public ShopPage()

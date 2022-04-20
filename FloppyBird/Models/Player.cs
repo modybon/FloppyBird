@@ -9,12 +9,24 @@ namespace FloppyBird.Models
     {
         private bool _isJumping;
         private bool _isAlive;
-        private int _coins;
+        private int _playerCoins;
         private Image _playerSkin;
         public event PropertyChangedEventHandler PropertyChanged;
         
         public Player()
         {
+        }
+
+        public int PLayerCoins
+        {
+            get
+            {
+                return _playerCoins;
+            }
+            set
+            {
+                _playerCoins = value;
+            }
         }
 
         public Image PlayerSkin
@@ -29,18 +41,7 @@ namespace FloppyBird.Models
             }
         }
 
-        public int Coins
-        {
-            get
-            {
-                return _coins;
-            }
-            set
-            {
-                _coins = value;
-            }
-        }
-
+        
         public bool IsAlive
         {
             get
@@ -65,11 +66,11 @@ namespace FloppyBird.Models
             }
         }
 
-        private void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //private void OnPropertyChanged(string propertyName)
+        //{
+        //    if (PropertyChanged != null)
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
         
     }
