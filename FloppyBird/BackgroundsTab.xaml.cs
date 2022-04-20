@@ -1,19 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using FloppyBird.Models;
 using Xamarin.Forms;
 
 namespace FloppyBird
 {
     public partial class BackgroundsTab : ContentPage
     {
+        private Boolean purchaseConfirm;
+
+
         public BackgroundsTab()
         {
             InitializeComponent();
             PopulateBackgrounds();
+            SetUserCoinsLabels();
         }
 
-      
+        async void BackgroundsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        {
+            purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
+
+            var item = BackgroundsList.SelectedItem as ShopItem;
+
+
+            if (purchaseConfirm)
+            {
+                UserCoins.Coins = UserCoins.Coins - item.Cost;
+                userCoinsLabel.Text = UserCoins.Coins.ToString();
+            }
+        }
+
+        private void SetUserCoinsLabels()
+        {
+            userCoinsLabel.Text = UserCoins.Coins.ToString();
+        }
+
         private void PopulateBackgrounds()
         {
             BackgroundsList.ItemsSource = new List<ShopItem>
@@ -49,8 +71,6 @@ namespace FloppyBird
             };
         }
 
-        void BackgroundsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
-        {
-        }
+        
     }
 }

@@ -1,30 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Diagnostics;
+using FloppyBird.Models;
 using Xamarin.Forms;
 
-
-[assembly: ExportFont("CartoonFun-rg0zO.ttf", Alias = "CartoonFun")]
-[assembly: ExportFont("Thickdeco-V8Gz.ttf", Alias = "ThickDeco")]
 
 
 namespace FloppyBird
 {
     public partial class SkinsTab : ContentPage
     {
+        private Boolean purchaseConfirm;
+
         public SkinsTab()
         {
             InitializeComponent();
             PopulateSkins();
+            SetUserCoinsLabels();
         }
 
-        void SkinsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
+        async void SkinsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
-            
+            purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
+
+            var item = SkinsList.SelectedItem as ShopItem;
+
+
+            if (purchaseConfirm)
+            {
+                UserCoins.Coins = UserCoins.Coins - item.Cost;
+                userCoinsLabel.Text = UserCoins.Coins.ToString();
+            }
         }
+
+        private void SetUserCoinsLabels()
+        {
+            userCoinsLabel.Text = UserCoins.Coins.ToString();
+        }
+
         private void PopulateSkins()
         {
+
             SkinsList.ItemsSource = new List<ShopItem>
+            
             {
                 new ShopItem
                 {

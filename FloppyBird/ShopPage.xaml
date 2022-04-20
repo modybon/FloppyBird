@@ -4,6 +4,7 @@
             xmlns:local="clr-namespace:FloppyBird"
              x:Class="FloppyBird.ShopPage">
   <!--Pages can be added as references or inline-->
-  <local:SkinsTab Title="Skins" />
+  <local:SkinsTab Title="Skins"/>
   <local:BackgroundsTab Title="Backgrounds" />
+   
 </TabbedPage>
