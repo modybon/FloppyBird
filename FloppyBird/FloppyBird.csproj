@@ -25,19 +25,33 @@
     <None Remove="Assets\Fonts\CartoonFun-rg0zO.ttf" />
     <None Remove="Assets\Fonts\Thickdeco-V8Gz.ttf" />
     <None Remove="Assets\Images\" />
-    <None Remove="Assets\Images\pokeball.png" />
-    <None Remove="Assets\Images\pipe.png" />
+    <None Remove="Assets\Images\Skins\" />
+    <None Remove="Assets\Images\Backgrounds\" />
+    <None Remove="Assets\Images\Skins\pipe.png" />
+    <None Remove="Assets\Images\Skins\pokeball.png" />
+    <None Remove="Assets\Images\Backgrounds\bg.png" />
+    <None Remove="Assets\Images\Icons\settings.png" />
+    <None Remove="Assets\Images\Icons\" />
+    <None Remove="Assets\Images\Icons\competition.png" />
+    <None Remove="Assets\Images\Icons\shop.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
     <Folder Include="Models\" />
     <Folder Include="Assets\Fonts\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="Assets\Images\Skins\" />
+    <Folder Include="Assets\Images\Backgrounds\" />
+    <Folder Include="Assets\Images\Icons\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Fonts\CartoonFun-rg0zO.ttf" />
     <EmbeddedResource Include="Assets\Fonts\Thickdeco-V8Gz.ttf" />
-    <EmbeddedResource Include="Assets\Images\pokeball.png" />
-    <EmbeddedResource Include="Assets\Images\pipe.png" />
+    <EmbeddedResource Include="Assets\Images\Skins\pipe.png" />
+    <EmbeddedResource Include="Assets\Images\Skins\pokeball.png" />
+    <EmbeddedResource Include="Assets\Images\Backgrounds\bg.png" />
+    <EmbeddedResource Include="Assets\Images\Icons\settings.png" />
+    <EmbeddedResource Include="Assets\Images\Icons\competition.png" />
+    <EmbeddedResource Include="Assets\Images\Icons\shop.png" />
   </ItemGroup>
 </Project>
