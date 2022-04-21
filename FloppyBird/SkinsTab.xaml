@@ -10,7 +10,7 @@
          
          
          <Label x:Name="userCoinsLabel" Text="UserCoins" FontFamily="TitleFont" FontSize="20" HorizontalOptions="EndAndExpand"/>
-         <Image Source="https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png"
+         <Image  x:Name="coinPicture"  Source="https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png"
                 HeightRequest="30"
                 HorizontalOptions="EndAndExpand"
                 />
@@ -28,10 +28,9 @@
                          <StackLayout Orientation="Horizontal" Padding="15" BackgroundColor="#8FE388">
 
                          <Image
-                             Source="{Binding Image}"
-                             Aspect="AspectFill"
-                          
-                         />
+                           Source="{Binding Image}"
+                            Aspect="AspectFill"/>
+
                              <StackLayout Orientation="Vertical" BackgroundColor="#8FE388">
                                  <Label
                                      Text="{Binding Title}"

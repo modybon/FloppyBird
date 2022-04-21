@@ -21,6 +21,8 @@ namespace FloppyBird
         {
             purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
 
+
+
             var item = BackgroundsList.SelectedItem as ShopItem;
 
 

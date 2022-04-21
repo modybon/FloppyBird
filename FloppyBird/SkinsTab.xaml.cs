@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading;
 using FloppyBird.Models;
 using Xamarin.Forms;
 
@@ -24,12 +25,18 @@ namespace FloppyBird
             purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
 
             var item = SkinsList.SelectedItem as ShopItem;
-
+            
 
             if (purchaseConfirm)
             {
                 UserCoins.Coins = UserCoins.Coins - item.Cost;
                 userCoinsLabel.Text = UserCoins.Coins.ToString();
+                SkinsRepository.AddSkin(item);
+
+                Player.PlayerSkin.Source = item.Image;
+                //Player.PlayerSkin = item.Image;
+
+               
             }
         }
 
@@ -37,6 +44,8 @@ namespace FloppyBird
         {
             userCoinsLabel.Text = UserCoins.Coins.ToString();
         }
+
+       
 
         private void PopulateSkins()
         {
@@ -48,8 +57,7 @@ namespace FloppyBird
                 {
                     Title = "Soccerball",
                     Cost = 200,
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1024px-Soccerball.svg.png"
-
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png"
                 },
 
                 new ShopItem

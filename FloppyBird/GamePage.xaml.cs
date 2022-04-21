@@ -31,7 +31,22 @@ namespace FloppyBird
             t2.Start();
             //Dead();
             //game.StartGame(playerImage,_screenHeight,_screenWidth);
+
+            StartTimer();
         }
+
+        static void StartTimer()
+        {
+            var timer = new Timer(TimerMethod, null, 0, 2000);
+
+            //Dispose the timer
+            timer.Dispose();
+        }
+        static void TimerMethod(object state)
+        {
+            UserCoins.Coins += 1;
+        }
+
 
         private void GridTapped()
         {

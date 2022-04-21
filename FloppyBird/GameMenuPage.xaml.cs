@@ -8,6 +8,9 @@ namespace FloppyBird
     public partial class GameMenuPage : ContentPage
     {
         private Player _player;
+        private int skinIndex=0;
+        private ShopItem currentItem;
+
         public GameMenuPage()
         {
             InitializeComponent();
@@ -15,18 +18,38 @@ namespace FloppyBird
             settingsImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.settings.png");
             shopImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.shop.png");
             ranksImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.competition.png");
-            playerChoosenSkin.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
+            playerChosenSkin.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
             backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg001.png");
         }
 
         void NextSkinBtnClicked(System.Object sender, System.EventArgs e)
         {
+            try
+            {
+                skinIndex++;
+                playerChosenSkin.Source = SkinsRepository.SkinsList[skinIndex].Image;
+            }
+            catch
+            {
+                skinIndex = 0;
+                playerChosenSkin.Source = SkinsRepository.SkinsList[skinIndex].Image;
+            }
+            
 
         }
 
         void PreviousSkinBtnClicked(System.Object sender, System.EventArgs e)
         {
-
+            try
+            {
+                skinIndex--;
+                playerChosenSkin.Source = SkinsRepository.SkinsList[skinIndex].Image;
+            }
+            catch
+            {
+                skinIndex = SkinsRepository.SkinsList.Count - 1;
+                playerChosenSkin.Source = SkinsRepository.SkinsList[skinIndex].Image;
+            }
         }
 
         void PreviousBackgroundBtnClicked(System.Object sender, System.EventArgs e)
