@@ -17,16 +17,15 @@ namespace FloppyBird
     {
         
 
-        private void UserCoinCountStart()
-        {
-            UserCoins.Coins = 0;
-        }
+        //private void UserCoinCountStart()
+        //{
+        //    UserCoins.Coins = 0;
+        //}
 
-        public ShopPage()
+        public ShopPage(double playerCoins)
         {
             InitializeComponent();
-            UserCoinCountStart();
-           
+            //UserCoinCountStart();
         }
 
         void ShopList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)

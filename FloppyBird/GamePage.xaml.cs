@@ -79,7 +79,7 @@ namespace FloppyBird
                 if (_message)
                 {
                     Player.PLayerCoins += game.Coins;
-                    game.PlayAgain();
+                    game.StartGame();
                     Updates();
                 }
                 else

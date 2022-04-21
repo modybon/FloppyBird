@@ -11,7 +11,7 @@ namespace FloppyBird
         private int skinIndex=0;
         private ShopItem currentItem;
 
-        public GameMenuPage(int coins)
+        public GameMenuPage(double coins)
         {
             InitializeComponent();
             _player = new Player();
@@ -63,7 +63,7 @@ namespace FloppyBird
 
         void ShopImageClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ShopPage());
+            Navigation.PushAsync(new ShopPage(Player.PLayerCoins));
         }
 
         void RanksImageClicked(System.Object sender, System.EventArgs e)

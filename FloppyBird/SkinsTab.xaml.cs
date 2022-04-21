@@ -29,8 +29,8 @@ namespace FloppyBird
 
             if (purchaseConfirm)
             {
-                UserCoins.Coins = UserCoins.Coins - item.Cost;
-                userCoinsLabel.Text = UserCoins.Coins.ToString();
+                Player.PLayerCoins = Player.PLayerCoins - item.Cost;
+                userCoinsLabel.Text = Player.PLayerCoins.ToString();
                 SkinsRepository.AddSkin(item);
 
                 //Player.PlayerSkin.Source = item.Image;
@@ -39,7 +39,8 @@ namespace FloppyBird
 
         private void SetUserCoinsLabels()
         {
-            userCoinsLabel.Text = UserCoins.Coins.ToString();
+            //userCoinsLabel.Text = UserCoins.Coins.ToString();
+            userCoinsLabel.Text = $"{Player.PLayerCoins}";
         }
 
 

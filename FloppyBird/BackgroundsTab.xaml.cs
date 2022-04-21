@@ -28,14 +28,14 @@ namespace FloppyBird
 
             if (purchaseConfirm)
             {
-                UserCoins.Coins = UserCoins.Coins - item.Cost;
-                userCoinsLabel.Text = UserCoins.Coins.ToString();
+                Player.PLayerCoins = Player.PLayerCoins - item.Cost;
+                userCoinsLabel.Text = Player.PLayerCoins.ToString();
             }
         }
 
         private void SetUserCoinsLabels()
         {
-            userCoinsLabel.Text = UserCoins.Coins.ToString();
+            userCoinsLabel.Text = Player.PLayerCoins.ToString();
         }
 
         private void PopulateBackgrounds()

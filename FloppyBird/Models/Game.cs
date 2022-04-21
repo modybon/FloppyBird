@@ -17,7 +17,7 @@ namespace FloppyBird.Models
         private double _screenHeight;
         private double _screenWidth;
         private int _score;
-        private int _coins;
+        private double _coins;
 
         public int Score
         {
@@ -26,7 +26,7 @@ namespace FloppyBird.Models
                 return _score;
             }
         }
-        public int Coins
+        public double Coins
         {
             get
             {
@@ -47,11 +47,15 @@ namespace FloppyBird.Models
 
         public void StartGame()
         {
+            _score = 0;
+            _coins = 0;
+            _playerImage.TranslationY = 0;
+            _player.IsAlive = true;
             _obstacle.RespawnObstacle();
             Gravity(_playerImage);
             Update();
         }
-
+        // Always checks if the user is still alive to keep the game going.
         private async void Update()
         {
             while (_player.IsAlive)
@@ -59,10 +63,9 @@ namespace FloppyBird.Models
                 bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
                 bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle.TopPart.Height && _obstacle.TopPart.TranslationX == -280 ? true : false;
                 bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle.BottomPart.Bounds.Y && _obstacle.BottomPart.TranslationX == -280 ? true : false;
-
                 bool playerPassed = _playerImage.TranslationY > _obstacle.TopPart.Height && _playerImage.TranslationY < _obstacle.BottomPart.Bounds.Y && _obstacle.TopPart.TranslationX == -280 ? true : false;
-
                 bool obstacleReachedEnd = _obstacle.TopPart.TranslationX <= -(_screenWidth / 2);
+
                 if (obstacleReachedEnd)
                 {
                     _obstacle.RespawnObstacle();
@@ -97,6 +100,7 @@ namespace FloppyBird.Models
             }
             
         }
+        // whenevr the player isn't jumping it makes the player fall
         private async void Gravity(Image player)
         {
             while (!_player.IsJumping)
@@ -114,14 +118,14 @@ namespace FloppyBird.Models
             else
                 return false;
         }
-
-        public void PlayAgain()
-        {
-            _score = 0;
-            _coins = 0;
-            _playerImage.TranslationY = 0;
-            _player.IsAlive = true;
-            StartGame();
-        }
+        // resets the game
+        //public void PlayAgain()
+        //{
+        //    _score = 0;
+        //    _coins = 0;
+        //    _playerImage.TranslationY = 0;
+        //    _player.IsAlive = true;
+        //    StartGame();
+        //}
     }
 }

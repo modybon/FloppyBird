@@ -20,7 +20,7 @@ namespace FloppyBird
 
         void LogInBtnClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new ShopPage());
+            Navigation.PushAsync(new LogInPage());
         }
     }
 }
