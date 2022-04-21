@@ -16,7 +16,6 @@ namespace FloppyBird.Models
         private Image _playerImage;
         private double _screenHeight;
         private double _screenWidth;
-        private Thread _otherThread;
         private int _score;
         private int _coins;
 
@@ -43,14 +42,13 @@ namespace FloppyBird.Models
             _playerImage = player;
             _screenHeight = screenHeight;
             _screenWidth = screenWidth;
-            _otherThread = new Thread(()=> Gravity(_playerImage)); 
+             
         }
 
         public void StartGame()
         {
             _obstacle.RespawnObstacle();
-            //Gravity(_playerImage);
-            _otherThread.Start();
+            Gravity(_playerImage);
             Update();
         }
 
@@ -58,16 +56,6 @@ namespace FloppyBird.Models
         {
             while (_player.IsAlive)
             {
-                var playerX = _playerImage.TranslationX;
-                var playerY = _playerImage.TranslationY;
-                // OBSTACLE 1 AXIS TRANSLATION
-                var obstacle1X = _obstacle.TopPart.TranslationX;
-                var obstacle1Y = _obstacle.TopPart.TranslationY;
-                var obstacle1Height = _obstacle.TopPart.Height;
-                // OBSTACLE 2 AXIS TRANSLATION
-                var obstacle2X = _obstacle.BottomPart.TranslationX;
-                var obstacle2Y = _obstacle.BottomPart.TranslationY;
-                var obstacle2Height = _obstacle.BottomPart.Height;
                 bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
                 bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle.TopPart.Height && _obstacle.TopPart.TranslationX == -280 ? true : false;
                 bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle.BottomPart.Bounds.Y && _obstacle.BottomPart.TranslationX == -280 ? true : false;
@@ -126,16 +114,14 @@ namespace FloppyBird.Models
             else
                 return false;
         }
+
+        public void PlayAgain()
+        {
+            _score = 0;
+            _coins = 0;
+            _playerImage.TranslationY = 0;
+            _player.IsAlive = true;
+            StartGame();
+        }
     }
 }
-
-//var playerX = _playerImage.TranslationX;
-//var playerY = _playerImage.TranslationY;
-//// OBSTACLE 1 AXIS TRANSLATION
-//var obstacle1X = _obstacle._obstacle1.TranslationX;
-//var obstacle1Y = _obstacle._obstacle1.TranslationY;
-//var obstacle1Height = _obstacle._obstacle1.Height;
-//// OBSTACLE 2 AXIS TRANSLATION
-//var obstacle2X = _obstacle._obstacle2.TranslationX;
-//var obstacle2Y = _obstacle._obstacle2.TranslationY;
-//var obstacle2Height = _obstacle._obstacle1.Height;
