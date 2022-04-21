@@ -18,6 +18,7 @@ namespace FloppyBird.Models
         private double _screenWidth;
         private Thread _otherThread;
         private int _score;
+        private int _coins;
 
         public int Score
         {
@@ -26,7 +27,13 @@ namespace FloppyBird.Models
                 return _score;
             }
         }
-
+        public int Coins
+        {
+            get
+            {
+                return _coins;
+            }
+        }
 
         public Game(Image player, double screenHeight, double screenWidth, Shape obstacle1, Shape obstacle2)
         {
@@ -75,6 +82,7 @@ namespace FloppyBird.Models
                 if (playerPassed)
                 {
                     _score += 1;
+                    _coins += 10;
                 }
 
                 if (!playerHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)

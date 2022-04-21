@@ -24,6 +24,7 @@ namespace FloppyBird
             _screenHeight = _screenHeight / _density;
             playerImage.Source = playerSkin;
             backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
+            coinImage.Source = "https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png";
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();
             Thread t1 = new Thread(() => GameOverMessage());
@@ -71,6 +72,7 @@ namespace FloppyBird
             while (!game.IsDead())
             {
                 MainThread.BeginInvokeOnMainThread(()=> scoreLabel.Text = $"{game.Score}") ;
+                MainThread.BeginInvokeOnMainThread(() => coinsLabel.Text = $"{game.Coins}");
             }
         }
 
