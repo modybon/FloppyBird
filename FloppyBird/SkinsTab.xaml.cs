@@ -33,10 +33,7 @@ namespace FloppyBird
                 userCoinsLabel.Text = UserCoins.Coins.ToString();
                 SkinsRepository.AddSkin(item);
 
-                Player.PlayerSkin.Source = item.Image;
-                //Player.PlayerSkin = item.Image;
-
-               
+                //Player.PlayerSkin.Source = item.Image;
             }
         }
 
@@ -45,19 +42,17 @@ namespace FloppyBird
             userCoinsLabel.Text = UserCoins.Coins.ToString();
         }
 
-       
 
         private void PopulateSkins()
         {
-
             SkinsList.ItemsSource = new List<ShopItem>
-            
             {
                 new ShopItem
                 {
                     Title = "Soccerball",
                     Cost = 200,
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png"
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1024px-Soccerball.svg.png"
+
                 },
 
                 new ShopItem

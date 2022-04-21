@@ -41,8 +41,13 @@
 
         </StackLayout>
 
-        <Label Text="Play" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,200,0,0"/>
+        <Label Text="Press here to Play" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,200,0,0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="PlayBtnClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
 
+       
         <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand" Margin="30,0,30,50">
             <Image x:Name="shopImage" HorizontalOptions="Start" Scale="1.5" HeightRequest="50" WidthRequest="50">
                 <Image.GestureRecognizers>

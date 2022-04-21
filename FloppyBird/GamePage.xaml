@@ -15,7 +15,8 @@
         </Grid.ColumnDefinitions>
         <Image x:Name="backgroundImage" Grid.ColumnSpan="3"/>
         <Label Grid.Row="0" Grid.ColumnSpan="3" Text="0" FontSize="20" HorizontalOptions="CenterAndExpand" x:Name="scoreLabel"  Margin="30"/>
-        
+        <Image />
+        <Label Grid.Row="0" Grid.ColumnSpan="3" Text="0" FontSize="20" HorizontalOptions="EndAndExpand" x:Name="coinsLabel"  Margin="30"/>
         <StackLayout >
             <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" />
         </StackLayout>

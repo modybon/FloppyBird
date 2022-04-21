@@ -15,6 +15,7 @@ namespace FloppyBird
         {
             InitializeComponent();
             _player = new Player();
+            var availbleSkins = SkinsRepository.SkinsList;
             settingsImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.settings.png");
             shopImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.shop.png");
             ranksImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.competition.png");
@@ -34,8 +35,6 @@ namespace FloppyBird
                 skinIndex = 0;
                 playerChosenSkin.Source = SkinsRepository.SkinsList[skinIndex].Image;
             }
-            
-
         }
 
         void PreviousSkinBtnClicked(System.Object sender, System.EventArgs e)
@@ -69,5 +68,13 @@ namespace FloppyBird
         {
             Navigation.PushAsync(new RanksPage());
         }
+
+        void PlayBtnClicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new GamePage(playerChosenSkin.Source));
+        }
+
+
+
     }
 }

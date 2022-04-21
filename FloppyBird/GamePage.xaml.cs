@@ -17,11 +17,12 @@ namespace FloppyBird
         private Game game;
         private bool _started;
         private TapGestureRecognizer gridTap = new TapGestureRecognizer();
-        public GamePage()
+
+        public GamePage(ImageSource playerSkin)
         {
             InitializeComponent();
             _screenHeight = _screenHeight / _density;
-            playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
+            playerImage.Source = playerSkin;
             backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();

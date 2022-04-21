@@ -29,9 +29,6 @@ namespace FloppyBird
            
         }
 
-        
-
-
         void ShopList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
         }
