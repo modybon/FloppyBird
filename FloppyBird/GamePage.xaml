@@ -7,14 +7,13 @@
     >
     
     <Grid x:Name="grid" >
-
-       
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        
+
         <Label Grid.Row="0" Grid.Column="1" Text="0" FontSize="20" HorizontalOptions="Center" x:Name="scoreLabel"  Margin="30"/>
         
         <StackLayout >

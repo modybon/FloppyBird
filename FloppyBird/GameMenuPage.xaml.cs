@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using FloppyBird.Models;
 using Xamarin.Forms;
 
 namespace FloppyBird
 {
     public partial class GameMenuPage : ContentPage
     {
+        private Player _player;
         public GameMenuPage()
         {
             InitializeComponent();
+            _player = new Player();
             settingsImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.settings.png");
             shopImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.shop.png");
             ranksImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.competition.png");
             playerChoosenSkin.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
-            contentPage.BackgroundImageSource = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
+            backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg001.png");
         }
 
         void NextSkinBtnClicked(System.Object sender, System.EventArgs e)
@@ -22,12 +24,12 @@ namespace FloppyBird
 
         }
 
-        void BackSkinBtnClicked(System.Object sender, System.EventArgs e)
+        void PreviousSkinBtnClicked(System.Object sender, System.EventArgs e)
         {
 
         }
 
-        void BackBackgroundBtnClicked(System.Object sender, System.EventArgs e)
+        void PreviousBackgroundBtnClicked(System.Object sender, System.EventArgs e)
         {
         }
 

@@ -6,7 +6,7 @@ namespace FloppyBird.Models
 {
     public class BackgroundsRepository
     {
-        public ImageSource DefaultBackground = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
+        public ImageSource CurrentBackground = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
         private List<ImageSource> _backgroundsList = new List<ImageSource>();
         public List<ImageSource> BackgroundsList
         {

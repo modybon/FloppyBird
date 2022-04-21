@@ -136,4 +136,7 @@
   <ItemGroup>
     <BundleResource Include="GoogleService-Info.plist" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\bg.imageset\" />
+  </ItemGroup>
 </Project>

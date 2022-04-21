@@ -4,8 +4,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="FloppyBird.FirstPage"
     NavigationPage.HasNavigationBar="False"
+    x:Name="contentPage"
     >
-    <StackLayout  BackgroundColor="#8FE388">
+
+    <Grid >
+        <Image x:Name="backgroundImage" Aspect="AspectFill"/>
+        <StackLayout Margin="0,70,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Floppy Bird" FontSize="Title" FontFamily="TitleFont"/>
+            <Button Text="Play"  Clicked="PlayBtnClicked"/>
+            <Button Text="Login" Clicked="LogInBtnClicked"/>
+        </StackLayout>
+    </Grid>
+    
+</ContentPage>
+
+<!--<StackLayout  >
+        
         <StackLayout Orientation="Vertical" HorizontalOptions="Center" Margin="100" >
             <Label Text="Floppy Bird" FontSize="Title" FontFamily="TitleFont"/>
             <StackLayout Margin="0,70,0,0">
@@ -13,6 +27,4 @@
                 <Button Text="Login" VerticalOptions="Center" Clicked="LogInBtnClicked"/>
             </StackLayout>
         </StackLayout>
-    </StackLayout>
-
-</ContentPage>
+    </StackLayout>-->

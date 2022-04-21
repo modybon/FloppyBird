@@ -10,11 +10,12 @@ namespace FloppyBird
         public FirstPage()
         {
             InitializeComponent();
+            backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
         }
 
         void PlayBtnClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new GamePage()) ;
+            Navigation.PushAsync(new GameMenuPage()) ;
         }
 
         void LogInBtnClicked(System.Object sender, System.EventArgs e)

@@ -34,6 +34,7 @@
     <None Remove="Assets\Images\Icons\" />
     <None Remove="Assets\Images\Icons\competition.png" />
     <None Remove="Assets\Images\Icons\shop.png" />
+    <None Remove="Assets\Images\Backgrounds\bg001.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
@@ -53,5 +54,6 @@
     <EmbeddedResource Include="Assets\Images\Icons\settings.png" />
     <EmbeddedResource Include="Assets\Images\Icons\competition.png" />
     <EmbeddedResource Include="Assets\Images\Icons\shop.png" />
+    <EmbeddedResource Include="Assets\Images\Backgrounds\bg001.png" />
   </ItemGroup>
 </Project>
