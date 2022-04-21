@@ -78,12 +78,13 @@ namespace FloppyBird
                 _message = await DisplayAlert("Game Over", $"Score: {game.Score}\n Coins:{game.Coins} ", "Play Again", "Menu");
                 if (_message)
                 {
+                    Player.PLayerCoins += game.Coins;
                     game.PlayAgain();
                     Updates();
                 }
                 else
                 {
-                    await Navigation.PushAsync(new GameMenuPage(game.Coins));
+                    await Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins + game.Coins));
                 }
             }
             ) ;
