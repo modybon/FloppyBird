@@ -9,21 +9,24 @@
     <Grid>
 
         <Image x:Name="backgroundImage" Aspect="AspectFill"/>
-        <Image x:Name="settingsImage" HeightRequest="30" WidthRequest="30" VerticalOptions="Start" HorizontalOptions="End" Margin="0,25"/>
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Margin="20" >
-                <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" VerticalOptions="Center">
-                    <Path.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PreviousSkinBtnClicked"/>
-                    </Path.GestureRecognizers>
-                </Path>
-                <Image x:Name="playerChoosenSkin" HeightRequest="50" WidthRequest="50" Margin="15"/>
 
-                <Path Fill="Black" Data="M 0 0 L 10 10 L 0 20 Z" VerticalOptions="Center">
-                    <Path.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="NextSkinBtnClicked"/>
-                    </Path.GestureRecognizers>
-                </Path>
-            </StackLayout>
+        <Image x:Name="settingsImage" HeightRequest="30" WidthRequest="30" VerticalOptions="Start" HorizontalOptions="End" Margin="0,25"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Margin="20" >
+            <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" VerticalOptions="Center">
+                <Path.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="PreviousSkinBtnClicked"/>
+                </Path.GestureRecognizers>
+            </Path>
+            <Image x:Name="playerChoosenSkin" HeightRequest="50" WidthRequest="50" Margin="15"/>
+
+            <Path Fill="Black" Data="M 0 0 L 10 10 L 0 20 Z" VerticalOptions="Center">
+                <Path.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="NextSkinBtnClicked"/>
+                </Path.GestureRecognizers>
+            </Path>
+        </StackLayout>
+
         <StackLayout Orientation="Horizontal"  VerticalOptions="CenterAndExpand" Margin="40" >
             <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" Scale= "3" HorizontalOptions="StartAndExpand">
                 <Path.GestureRecognizers>
@@ -37,6 +40,7 @@
             </Path>
 
         </StackLayout>
+
         <Label Text="Play" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,200,0,0"/>
 
         <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand" Margin="30,0,30,50">
@@ -51,58 +55,7 @@
                 </Image.GestureRecognizers>
             </Image>
         </StackLayout>
-        <!-- Place your layouts and controls here, for example-->
 
     </Grid>
 
 </ContentPage>
-
-<!--<StackLayout >
-        <StackLayout >
-            <Image x:Name="settingsImage" HeightRequest="30" WidthRequest="30" HorizontalOptions="EndAndExpand" Margin="0,25"  />
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" VerticalOptions="Center">
-                    <Path.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="PreviousSkinBtnClicked"/>
-                    </Path.GestureRecognizers>
-                </Path>
-                <Image x:Name="playerChoosenSkin" HeightRequest="50" WidthRequest="50" Margin="15"/>
-
-                <Path Fill="Black" Data="M 0 0 L 10 10 L 0 20 Z" VerticalOptions="Center">
-                    <Path.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="NextSkinBtnClicked"/>
-                    </Path.GestureRecognizers>
-                </Path>
-            </StackLayout>
-
-        </StackLayout>
-        
-        <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand" Margin="40">
-            <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" Scale= "3" HorizontalOptions="StartAndExpand">
-                <Path.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="PreviousBackgroundBtnClicked"/>
-                </Path.GestureRecognizers>
-            </Path>
-            <Path Fill="Black" Data="M 0 0 L 10 10 L 0 20 Z" Scale="3" HorizontalOptions="EndAndExpand">
-                <Path.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="NextBackgroundBtnClicked"/>
-                </Path.GestureRecognizers>
-            </Path>
-        </StackLayout>
-
-        <Label Text="Play" HorizontalOptions="CenterAndExpand"/>
-
-        <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand" Margin="30,0,30,50">
-            <Image x:Name="shopImage" HorizontalOptions="Start" Scale="1.5" HeightRequest="50" WidthRequest="50">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ShopImageClicked"/>
-                </Image.GestureRecognizers>
-            </Image>
-            <Image x:Name="ranksImage" HorizontalOptions="EndAndExpand" Scale="1.5" HeightRequest="50" WidthRequest="50">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="RanksImageClicked"/>
-                </Image.GestureRecognizers>
-            </Image>
-        </StackLayout>
-
-    </StackLayout>-->

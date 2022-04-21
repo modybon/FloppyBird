@@ -22,6 +22,7 @@ namespace FloppyBird
             InitializeComponent();
             _screenHeight = _screenHeight / _density;
             playerImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
+            backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();
             Thread t1 = new Thread(() => GameOverMessage());

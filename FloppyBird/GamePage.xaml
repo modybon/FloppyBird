@@ -13,8 +13,8 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-
-        <Label Grid.Row="0" Grid.Column="1" Text="0" FontSize="20" HorizontalOptions="Center" x:Name="scoreLabel"  Margin="30"/>
+        <Image x:Name="backgroundImage" Grid.ColumnSpan="3"/>
+        <Label Grid.Row="0" Grid.ColumnSpan="3" Text="0" FontSize="20" HorizontalOptions="CenterAndExpand" x:Name="scoreLabel"  Margin="30"/>
         
         <StackLayout >
             <Image x:Name="playerImage" WidthRequest="50" HeightRequest="50" HorizontalOptions="Start" />
