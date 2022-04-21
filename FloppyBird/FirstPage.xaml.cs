@@ -15,7 +15,7 @@ namespace FloppyBird
 
         void PlayBtnClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new GameMenuPage()) ;
+            Navigation.PushAsync(new GameMenuPage(0)) ;
         }
 
         void LogInBtnClicked(System.Object sender, System.EventArgs e)

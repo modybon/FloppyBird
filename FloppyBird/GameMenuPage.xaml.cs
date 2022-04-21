@@ -11,7 +11,7 @@ namespace FloppyBird
         private int skinIndex=0;
         private ShopItem currentItem;
 
-        public GameMenuPage()
+        public GameMenuPage(int coins)
         {
             InitializeComponent();
             _player = new Player();
@@ -21,6 +21,8 @@ namespace FloppyBird
             ranksImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.competition.png");
             playerChosenSkin.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
             backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg001.png");
+            coinsImage.Source = "https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png";
+            coinsLabel.Text = $"{coins}";
         }
 
         void NextSkinBtnClicked(System.Object sender, System.EventArgs e)

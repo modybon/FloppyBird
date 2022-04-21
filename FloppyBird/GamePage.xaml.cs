@@ -16,6 +16,7 @@ namespace FloppyBird
         private double _screenWidth = DeviceDisplay.MainDisplayInfo.Width;
         private Game game;
         private bool _started;
+        private bool _message;
         private TapGestureRecognizer gridTap = new TapGestureRecognizer();
 
         public GamePage(ImageSource playerSkin)
@@ -82,7 +83,23 @@ namespace FloppyBird
             {
 
             }
-            MainThread.BeginInvokeOnMainThread(() => DisplayAlert("Game Over", "Died", "OK"));
+            //DisplayAlert("Game Over", $"Score: {game.Score}\n Coins:{game.Coins} ", "Play Again", "Menu");
+
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                _message = await DisplayAlert("Game Over", $"Score: {game.Score}\n Coins:{game.Coins} ", "Play Again", "Menu");
+                if (_message)
+                {
+                    game.StartGame();
+                }
+                else
+                {
+                    await Navigation.PushAsync(new GameMenuPage(game.Coins));
+                }
+            }
+
+
+            ) ;
         }
 
         //void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
