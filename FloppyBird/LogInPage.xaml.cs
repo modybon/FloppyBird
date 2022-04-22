@@ -42,7 +42,7 @@ namespace FloppyBird
             bool SignedIn = await Firestore.SignInUser(emailEntry.Text, passwordEntry.Text);
             if (SignedIn)
             {
-                await DisplayAlert("Log In", $"Signed In: {SignedIn}", "Ok");
+                await Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins));
             }
             else
             {

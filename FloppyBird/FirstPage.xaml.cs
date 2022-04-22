@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using FloppyBird.Models;
 using Xamarin.Forms;
 
 namespace FloppyBird
@@ -15,7 +15,7 @@ namespace FloppyBird
 
         void PlayBtnClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new GameMenuPage(0)) ;
+            Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins)) ;
         }
 
         void LogInBtnClicked(System.Object sender, System.EventArgs e)
