@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Firebase.Auth;
 using Plugin.CloudFirestore;
 
+// Author: Mohamed Ahmed
 namespace FloppyBird.Models
 {
     public class Firestore

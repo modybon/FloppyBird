@@ -9,6 +9,8 @@ using Xamarin.Forms;
 
 namespace FloppyBird
 {
+    // Author: Mohamed Ahmed
+    // Controls the UI of the game 
     public partial class GamePage : ContentPage
     {
         private double _density = DeviceDisplay.MainDisplayInfo.Density;
@@ -92,16 +94,3 @@ namespace FloppyBird
         }
     }
 }
-
-
-//static void StartTimer()
-//{
-//    var timer = new Timer(TimerMethod, null, 0, 2000);
-
-//    //Dispose the timer
-//    timer.Dispose();
-//}
-//static void TimerMethod(object state)
-//{
-//    UserCoins.Coins += 1;
-//}

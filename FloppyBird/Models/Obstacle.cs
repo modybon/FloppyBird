@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Shapes;
 
+// Authors: Mohamed Ahmed
+// creates and moves the obstacles that are shown on the screen. 
 namespace FloppyBird.Models
 {
     public class Obstacle
     {
-        private double _height;
         private int _width;
         private double _screenHeight;
         private Shape _obstacle1;
@@ -55,8 +56,7 @@ namespace FloppyBird.Models
             _obstacle1.TranslationX = 40;
             _obstacle2.TranslationX = 40;
         }
-        // todo: Create a method to move obstacles
-
+       
         public async Task MoveObstacle()
         {
             var a1 = _obstacle1.TranslateTo(_obstacle1.TranslationX - 40, 0);

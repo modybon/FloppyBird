@@ -9,6 +9,8 @@ using Xamarin.Forms.Shapes;
 
 namespace FloppyBird.Models
 {
+    // Author: Mohamed Ahmed
+    // This is the class that controlls everything that happens in the game.
     public class Game 
     {
         private Player _player;

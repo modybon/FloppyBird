@@ -6,6 +6,8 @@ using Xamarin.Forms;
 
 namespace FloppyBird
 {
+    // Author: Mohamed Ahmed
+    // List the ranks of the users on the firestore server
     public partial class RanksPage : ContentPage
     {
         public RanksPage()

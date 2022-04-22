@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace FloppyBird.Models
 {
+    // Author : Mohamed Ahmed
     public class User
     {
         public string UserName { get; set; }

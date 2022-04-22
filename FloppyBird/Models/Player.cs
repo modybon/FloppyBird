@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
+// Authors: Mohamed Ahmed
 namespace FloppyBird.Models
 {
     public class Player 
