@@ -46,7 +46,7 @@ namespace FloppyBird.Models
 
         public static void AddSkin(ShopItem skin)
         {
-            SkinsList.Add(skin);
+            _skinsList.Add(skin);
         }
     }
 }

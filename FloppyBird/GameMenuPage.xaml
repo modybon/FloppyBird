@@ -11,7 +11,10 @@
         <Image x:Name="backgroundImage" Aspect="AspectFill"/>
 
         <Image x:Name="settingsImage" HeightRequest="30" WidthRequest="30" VerticalOptions="Start" HorizontalOptions="End" Margin="0,25"/>
-
+        <StackLayout  Orientation="Horizontal" HorizontalOptions="Start" Margin="0,20,0,0">
+            <Image x:Name="coinsImage" HeightRequest="30" WidthRequest="30" VerticalOptions="Start"/>
+            <Label x:Name="coinsLabel" Text="0" Margin="0,5,0,0"/>
+        </StackLayout>
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start" Margin="20" >
             <Path Fill="Black" Data="M 0 10 L 10 0 L 10 20 Z" VerticalOptions="Center">
                 <Path.GestureRecognizers>
@@ -41,8 +44,12 @@
 
         </StackLayout>
 
-        <Label Text="Play" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,200,0,0"/>
-
+        <Label Text="Press here to Play" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Margin="0,200,0,0">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="PlayBtnClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+    
         <StackLayout Orientation="Horizontal"  VerticalOptions="EndAndExpand" Margin="30,0,30,50">
             <Image x:Name="shopImage" HorizontalOptions="Start" Scale="1.5" HeightRequest="50" WidthRequest="50">
                 <Image.GestureRecognizers>

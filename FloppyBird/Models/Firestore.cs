@@ -85,30 +85,7 @@ namespace FloppyBird.Models
             }
         }
 
-        public async Task getUserInfoTest()
-        {
-            var document = await CrossCloudFirestore.Current
-                                        .Instance
-                                        .Collection("Users")
-                                        .Document("11C6ZPdgjv2N6dhA2IZT")
-                                        .GetAsync();
-            User user = document.ToObject<User>();
-            string use = user.UserName;
-            var document2 = await CrossCloudFirestore.Current
-                                        .Instance
-                                        .Collection("Users")
-                                        .WhereEqualsTo("HighScore", 0).OrderBy("HighScore", true).GetAsync();
-            var users = document2.ToObjects<User>();
-
-            foreach (User u in users)
-            {
-                string username = u.UserName;
-                List<string> purchases = u.Purchases;
-                int highscore = u.HighScore;
-                string uid = u.Uid;
-            }
-        }
-
+        // gets all the users that have a highscore higher than 0
         public static async Task<IEnumerable<User>> getUserList()
         {
             var users = await CrossCloudFirestore.Current

@@ -16,8 +16,8 @@ namespace FloppyBird.Models
         private Image _playerImage;
         private double _screenHeight;
         private double _screenWidth;
-        private Thread _otherThread;
         private int _score;
+        private double _coins;
 
         public int Score
         {
@@ -26,7 +26,13 @@ namespace FloppyBird.Models
                 return _score;
             }
         }
-
+        public double Coins
+        {
+            get
+            {
+                return _coins;
+            }
+        }
 
         public Game(Image player, double screenHeight, double screenWidth, Shape obstacle1, Shape obstacle2)
         {
@@ -36,38 +42,30 @@ namespace FloppyBird.Models
             _playerImage = player;
             _screenHeight = screenHeight;
             _screenWidth = screenWidth;
-            _otherThread = new Thread(()=> Gravity(_playerImage)); 
+             
         }
 
         public void StartGame()
         {
+            _score = 0;
+            _coins = 0;
+            _playerImage.TranslationY = 0;
+            _player.IsAlive = true;
             _obstacle.RespawnObstacle();
-            //Gravity(_playerImage);
-            _otherThread.Start();
+            Gravity(_playerImage);
             Update();
         }
-
+        // Always checks if the user is still alive to keep the game going.
         private async void Update()
         {
             while (_player.IsAlive)
             {
-                var playerX = _playerImage.TranslationX;
-                var playerY = _playerImage.TranslationY;
-                // OBSTACLE 1 AXIS TRANSLATION
-                var obstacle1X = _obstacle.TopPart.TranslationX;
-                var obstacle1Y = _obstacle.TopPart.TranslationY;
-                var obstacle1Height = _obstacle.TopPart.Height;
-                // OBSTACLE 2 AXIS TRANSLATION
-                var obstacle2X = _obstacle.BottomPart.TranslationX;
-                var obstacle2Y = _obstacle.BottomPart.TranslationY;
-                var obstacle2Height = _obstacle.BottomPart.Height;
                 bool playerHitTopOrBot = _playerImage.TranslationY < 0 || _playerImage.TranslationY >= _screenHeight;
                 bool playerHitObstacle1 = _playerImage.TranslationY <= _obstacle.TopPart.Height && _obstacle.TopPart.TranslationX == -280 ? true : false;
                 bool playerHitObstacle2 = _playerImage.TranslationY >= _obstacle.BottomPart.Bounds.Y && _obstacle.BottomPart.TranslationX == -280 ? true : false;
-
                 bool playerPassed = _playerImage.TranslationY > _obstacle.TopPart.Height && _playerImage.TranslationY < _obstacle.BottomPart.Bounds.Y && _obstacle.TopPart.TranslationX == -280 ? true : false;
-
                 bool obstacleReachedEnd = _obstacle.TopPart.TranslationX <= -(_screenWidth / 2);
+
                 if (obstacleReachedEnd)
                 {
                     _obstacle.RespawnObstacle();
@@ -75,6 +73,7 @@ namespace FloppyBird.Models
                 if (playerPassed)
                 {
                     _score += 1;
+                    _coins += 10;
                 }
 
                 if (!playerHitTopOrBot && !playerHitObstacle1 && !playerHitObstacle2)
@@ -101,6 +100,7 @@ namespace FloppyBird.Models
             }
             
         }
+        // whenevr the player isn't jumping it makes the player fall
         private async void Gravity(Image player)
         {
             while (!_player.IsJumping)
@@ -118,16 +118,14 @@ namespace FloppyBird.Models
             else
                 return false;
         }
+        // resets the game
+        //public void PlayAgain()
+        //{
+        //    _score = 0;
+        //    _coins = 0;
+        //    _playerImage.TranslationY = 0;
+        //    _player.IsAlive = true;
+        //    StartGame();
+        //}
     }
 }
-
-//var playerX = _playerImage.TranslationX;
-//var playerY = _playerImage.TranslationY;
-//// OBSTACLE 1 AXIS TRANSLATION
-//var obstacle1X = _obstacle._obstacle1.TranslationX;
-//var obstacle1Y = _obstacle._obstacle1.TranslationY;
-//var obstacle1Height = _obstacle._obstacle1.Height;
-//// OBSTACLE 2 AXIS TRANSLATION
-//var obstacle2X = _obstacle._obstacle2.TranslationX;
-//var obstacle2Y = _obstacle._obstacle2.TranslationY;
-//var obstacle2Height = _obstacle._obstacle1.Height;

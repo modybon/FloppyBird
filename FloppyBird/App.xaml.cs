@@ -12,7 +12,11 @@ namespace FloppyBird
         {
             InitializeComponent();
 
+<<<<<<< HEAD
             MainPage = new NavigationPage(new GameMenuPage());
+=======
+            MainPage = new NavigationPage(new FirstPage());
+>>>>>>> 2177315c2221aedffe9e10f9db7338637cec0da2
         }
 
         protected override void OnStart()

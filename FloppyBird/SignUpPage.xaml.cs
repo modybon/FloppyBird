@@ -34,7 +34,7 @@ namespace FloppyBird
                 bool userCreated = await Firestore.CreateUserAsync(userNameEntry.Text, emailEntry.Text, passwordEntry.Text);
                 if (userCreated)
                 {
-                    await DisplayAlert("Sign Up", $"User Created: {userCreated}", "OK");
+                    await Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins));
                 }
                 else
                 {

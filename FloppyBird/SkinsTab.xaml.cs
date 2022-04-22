@@ -29,35 +29,37 @@ namespace FloppyBird
 
             if (purchaseConfirm)
             {
-                UserCoins.Coins = UserCoins.Coins - item.Cost;
-                userCoinsLabel.Text = UserCoins.Coins.ToString();
+                Player.PLayerCoins = Player.PLayerCoins - item.Cost;
+                userCoinsLabel.Text = Player.PLayerCoins.ToString();
                 SkinsRepository.AddSkin(item);
 
                 //Player.PlayerSkin.Source = item.Image;
+<<<<<<< HEAD
                 //Player.PlayerSkin = item.Image;
 
                
+=======
+>>>>>>> 2177315c2221aedffe9e10f9db7338637cec0da2
             }
         }
 
         private void SetUserCoinsLabels()
         {
-            userCoinsLabel.Text = UserCoins.Coins.ToString();
+            //userCoinsLabel.Text = UserCoins.Coins.ToString();
+            userCoinsLabel.Text = $"{Player.PLayerCoins}";
         }
 
-       
 
         private void PopulateSkins()
         {
-
             SkinsList.ItemsSource = new List<ShopItem>
-            
             {
                 new ShopItem
                 {
                     Title = "Soccerball",
                     Cost = 200,
-                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/2048px-Soccerball.svg.png"
+                    Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Soccerball.svg/1024px-Soccerball.svg.png"
+
                 },
 
                 new ShopItem

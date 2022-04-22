@@ -7,7 +7,6 @@ namespace FloppyBird
     {
         public string Title { get; set; }
         public double Cost { get; set; }
-        public string Image { get; set; }
-
+        public ImageSource Image { get; set; }
     }
 }
