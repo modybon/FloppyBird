@@ -34,12 +34,8 @@ namespace FloppyBird
                 SkinsRepository.AddSkin(item);
 
                 //Player.PlayerSkin.Source = item.Image;
-<<<<<<< HEAD
-                //Player.PlayerSkin = item.Image;
 
-               
-=======
->>>>>>> 2177315c2221aedffe9e10f9db7338637cec0da2
+                //Player.PlayerSkin = item.Image;
             }
         }
 

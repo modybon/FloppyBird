@@ -14,7 +14,7 @@
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
 
-        <Image x:Name="backgroundImage" Grid.ColumnSpan="3"/>
+        <Image x:Name="backgroundImage" Grid.ColumnSpan="3" Aspect="AspectFill"/>
         <Label Grid.Row="0" Grid.ColumnSpan="3" Text="0" FontSize="20" HorizontalOptions="Center" x:Name="scoreLabel"  Margin="30"/>
 
         <StackLayout  Grid.Column="2" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="EndAndExpand" VerticalOptions="Start" Margin="0,20,0,0">

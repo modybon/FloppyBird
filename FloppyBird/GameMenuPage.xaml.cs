@@ -7,15 +7,14 @@ namespace FloppyBird
 {
     public partial class GameMenuPage : ContentPage
     {
-        private Player _player;
         private int skinIndex = 0;
         private int backgroundsIndex = 0;
+       //private double _coins;
         private ShopItem currentItem;
 
         public GameMenuPage(double coins)
         {
             InitializeComponent();
-            _player = new Player();
             var availbleSkins = SkinsRepository.SkinsList;
             settingsImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.settings.png");
             shopImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Icons.shop.png");
@@ -23,6 +22,7 @@ namespace FloppyBird
             playerChosenSkin.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Skins.pokeball.png");
             backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg001.png");
             coinsImage.Source = "https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png";
+            //_coins = coins;
             coinsLabel.Text = $"{coins}";
         }
 
@@ -94,10 +94,8 @@ namespace FloppyBird
 
         void PlayBtnClicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new GamePage(playerChosenSkin.Source));
+            Navigation.PushAsync(new GamePage(playerChosenSkin.Source, backgroundImage.Source));
         }
-
-
 
     }
 }

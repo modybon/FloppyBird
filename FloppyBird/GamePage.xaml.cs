@@ -19,12 +19,12 @@ namespace FloppyBird
         private bool _message;
         private TapGestureRecognizer gridTap = new TapGestureRecognizer();
 
-        public GamePage(ImageSource playerSkin)
+        public GamePage(ImageSource playerSkin, ImageSource background)
         {
             InitializeComponent();
             _screenHeight = _screenHeight / _density;
             playerImage.Source = playerSkin;
-            backgroundImage.Source = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
+            backgroundImage.Source = background;
             coinImage.Source = "https://www.pngall.com/wp-content/uploads/4/Empty-Gold-Coin-Transparent.png";
             game = new Game(playerImage, _screenHeight, _screenWidth, obstacle1, obstacle2);
             GridTapped();
@@ -84,7 +84,8 @@ namespace FloppyBird
                 }
                 else
                 {
-                    await Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins + game.Coins));
+                    Player.PLayerCoins += game.Coins;
+                    await Navigation.PushAsync(new GameMenuPage(Player.PLayerCoins));
                 }
             }
             ) ;
