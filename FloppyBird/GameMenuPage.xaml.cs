@@ -8,7 +8,8 @@ namespace FloppyBird
     public partial class GameMenuPage : ContentPage
     {
         private Player _player;
-        private int skinIndex=0;
+        private int skinIndex = 0;
+        private int backgroundsIndex = 0;
         private ShopItem currentItem;
 
         public GameMenuPage()
@@ -54,10 +55,30 @@ namespace FloppyBird
 
         void PreviousBackgroundBtnClicked(System.Object sender, System.EventArgs e)
         {
+            try
+            {
+                backgroundsIndex--;
+                backgroundImage.Source = BackgroundsRepository.BackgroundsList[backgroundsIndex].Image;
+            }
+            catch
+            {
+                backgroundsIndex = BackgroundsRepository.BackgroundsList.Count - 1;
+                backgroundImage.Source = BackgroundsRepository.BackgroundsList[backgroundsIndex].Image;
+            }
         }
 
         void NextBackgroundBtnClicked(System.Object sender, System.EventArgs e)
         {
+            try
+            {
+                backgroundsIndex++;
+                backgroundImage.Source = BackgroundsRepository.BackgroundsList[backgroundsIndex].Image;
+            }
+            catch
+            {
+                backgroundsIndex = 0;
+                backgroundImage.Source = BackgroundsRepository.BackgroundsList[backgroundsIndex].Image;
+            }
         }
 
         void ShopImageClicked(System.Object sender, System.EventArgs e)

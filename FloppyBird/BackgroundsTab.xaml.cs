@@ -30,6 +30,7 @@ namespace FloppyBird
             {
                 UserCoins.Coins = UserCoins.Coins - item.Cost;
                 userCoinsLabel.Text = UserCoins.Coins.ToString();
+                BackgroundsRepository.AddBackgrounds(item);
             }
         }
 

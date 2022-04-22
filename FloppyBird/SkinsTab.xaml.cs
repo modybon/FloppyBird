@@ -33,7 +33,7 @@ namespace FloppyBird
                 userCoinsLabel.Text = UserCoins.Coins.ToString();
                 SkinsRepository.AddSkin(item);
 
-                Player.PlayerSkin.Source = item.Image;
+                //Player.PlayerSkin.Source = item.Image;
                 //Player.PlayerSkin = item.Image;
 
                

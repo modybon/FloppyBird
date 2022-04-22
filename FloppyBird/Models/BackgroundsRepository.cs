@@ -4,11 +4,12 @@ using Xamarin.Forms;
 
 namespace FloppyBird.Models
 {
-    public class BackgroundsRepository
+    public static class BackgroundsRepository
     {
-        public ImageSource CurrentBackground = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
-        private List<ImageSource> _backgroundsList = new List<ImageSource>();
-        public List<ImageSource> BackgroundsList
+        //public ImageSource CurrentBackground = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
+        //private List<ImageSource> _backgroundsList = new List<ImageSource>();
+
+        public static List<ShopItem> BackgroundsList
         {
             get
             {
@@ -16,7 +17,17 @@ namespace FloppyBird.Models
             }
         }
 
-        public BackgroundsRepository()
+        private static List<ShopItem> _backgroundsList = new List<ShopItem>
+        {
+            new ShopItem
+                {
+                    Title = "DefaultBackground",
+                    Cost = 0,
+                    Image = "https://static.vecteezy.com/system/resources/previews/004/810/979/original/cloud-landscape-green-mountain-outdoor-with-blue-sky-background-vector.jpg"
+                },
+        };
+
+        static BackgroundsRepository()
         {
         }
 
@@ -25,9 +36,12 @@ namespace FloppyBird.Models
 
         //}
 
-        public void AddBackgrounds()
-        {
+       
+        
 
+        public static void AddBackgrounds(ShopItem background)
+        {
+            BackgroundsList.Add(background);
         }
 
 
