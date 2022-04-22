@@ -8,6 +8,8 @@ using FloppyBird.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+//page for initial shop page
+//author: Ryan
 
 namespace FloppyBird
 {

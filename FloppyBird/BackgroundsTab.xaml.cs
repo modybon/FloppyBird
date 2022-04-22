@@ -17,6 +17,9 @@ namespace FloppyBird
             SetUserCoinsLabels();
         }
 
+
+        //functon to decrement coins and pass the bought background to the user
+        //author ryan
         async void BackgroundsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
@@ -39,11 +42,16 @@ namespace FloppyBird
             }
         }
 
+        //set the coin labels to show the user their coins
+        //author ryan
         private void SetUserCoinsLabels()
         {
             userCoinsLabel.Text = Player.PLayerCoins.ToString();
         }
 
+
+        //fill the backgrounds shop page with backgrounds that are available to be bought
+        //author: Ryan
         private void PopulateBackgrounds()
         {
             BackgroundsList.ItemsSource = new List<ShopItem>

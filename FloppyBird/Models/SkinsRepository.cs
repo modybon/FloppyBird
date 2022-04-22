@@ -16,6 +16,8 @@ namespace FloppyBird.Models
         //    }
         //}
 
+        //author: Ryan
+
         private static List<ShopItem> _skinsList = new List<ShopItem>
         {
             new ShopItem

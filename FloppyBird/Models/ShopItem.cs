@@ -3,6 +3,7 @@ using Xamarin.Forms;
 
 namespace FloppyBird
 {
+    //author: Ryan
     public class ShopItem
     {
         public string Title { get; set; }

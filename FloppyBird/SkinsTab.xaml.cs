@@ -11,6 +11,8 @@ namespace FloppyBird
 {
     public partial class SkinsTab : ContentPage
     {
+
+        //variable for verifying the the shop item purchase
         private Boolean purchaseConfirm;
 
         public SkinsTab()
@@ -22,6 +24,7 @@ namespace FloppyBird
 
 
         //function to decrement coin value and set user skin for when user buys an item from the shop
+        //author: Ryan
         async void SkinsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");

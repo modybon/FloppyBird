@@ -9,6 +9,10 @@ namespace FloppyBird.Models
         //public ImageSource CurrentBackground = ImageSource.FromResource("FloppyBird.Assets.Images.Backgrounds.bg.png");
         //private List<ImageSource> _backgroundsList = new List<ImageSource>();
 
+
+        //author: Ryan
+
+
         public static List<ShopItem> BackgroundsList
         {
             get

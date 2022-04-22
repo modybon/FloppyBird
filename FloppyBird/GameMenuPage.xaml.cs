@@ -9,7 +9,7 @@ namespace FloppyBird
     {
         private int skinIndex = 0;
         private int backgroundsIndex = 0;
-       //private double _coins;
+        //for keeping track of the currently selected background and skin
         private ShopItem currentItem;
 
         public GameMenuPage(double coins)
@@ -26,6 +26,9 @@ namespace FloppyBird
             coinsLabel.Text = $"{coins}";
         }
 
+
+        //button for the right side arrow of the skin-chooser
+        //author: Ryan
         void NextSkinBtnClicked(System.Object sender, System.EventArgs e)
         {
             try
@@ -40,6 +43,8 @@ namespace FloppyBird
             }
         }
 
+        //button for the left side arrow of the skin-chooser
+        //author: Ryan
         void PreviousSkinBtnClicked(System.Object sender, System.EventArgs e)
         {
             try
@@ -54,6 +59,9 @@ namespace FloppyBird
             }
         }
 
+
+        //button for the right side arrow of the background-chooser
+        //author: Ryan
         void PreviousBackgroundBtnClicked(System.Object sender, System.EventArgs e)
         {
             try
@@ -68,6 +76,9 @@ namespace FloppyBird
             }
         }
 
+
+        //button for the left side arrow of the background-chooser
+        //author: Ryan
         void NextBackgroundBtnClicked(System.Object sender, System.EventArgs e)
         {
             try
@@ -82,16 +93,23 @@ namespace FloppyBird
             }
         }
 
+        //button to go to the shop page
+        //author: Ryan
         void ShopImageClicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new ShopPage(Player.PLayerCoins));
         }
 
+
+        //button to go to the ranks page
+        //author: Ryan
         void RanksImageClicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new RanksPage());
         }
 
+        //button to go to the backgrounds page
+        //author: Ryan
         void PlayBtnClicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new GamePage(playerChosenSkin.Source, backgroundImage.Source));
