@@ -20,6 +20,8 @@ namespace FloppyBird
             SetUserCoinsLabels();
         }
 
+
+        //function to decrement coin value and set user skin for when user buys an item from the shop
         async void SkinsList_ItemTapped(System.Object sender, Xamarin.Forms.ItemTappedEventArgs e)
         {
             purchaseConfirm = await DisplayAlert("Confirm your purchase?", "There are no refunds!", "Confirm", "Cancel");
@@ -39,6 +41,9 @@ namespace FloppyBird
             }
         }
 
+
+        //method to show the user the amount of coins they have
+        //author: Ryan
         private void SetUserCoinsLabels()
         {
             //userCoinsLabel.Text = UserCoins.Coins.ToString();
@@ -46,6 +51,8 @@ namespace FloppyBird
         }
 
 
+        //method to load the shop with skins to buy
+        //author: Ryan
         private void PopulateSkins()
         {
             SkinsList.ItemsSource = new List<ShopItem>
